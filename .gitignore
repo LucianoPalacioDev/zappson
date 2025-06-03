@@ -39,4 +39,5 @@ yarn-error.*
 app-example
 
 scripts/get-episodes/data
+scripts/save-episodes/data
 
