@@ -1,3 +1,4 @@
+import { useLanguage } from "@/contexts/LanguageContext";
 import { useTheme } from "@/hooks/useThemeColor";
 import { useState } from "react";
 import {
@@ -13,6 +14,7 @@ import useStyles from "./styles";
 export default function WelcomeScreen() {
   const [name, setName] = useState("");
   const { colors } = useTheme();
+  const { t } = useLanguage();
   const styles = useStyles();
 
   const handleContinue = () => {
@@ -27,32 +29,29 @@ export default function WelcomeScreen() {
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
       <View style={styles.header}>
-        <Text style={styles.title}>Los Simpsons</Text>
+        <Text style={styles.title}>{t("welcome.title")}</Text>
         <Text style={styles.emoji}>📺</Text>
-        <Text style={styles.subtitle}>¡Bienvenido!</Text>
-        <Text style={styles.description}>
-          Descubre episodios aleatorios de la familia más famosa de Springfield.
-          ¡Prepárate para reír con Homer, Marge, Bart, Lisa y Maggie!
-        </Text>
+        <Text style={styles.subtitle}>{t("welcome.subtitle")}</Text>
+        <Text style={styles.description}>{t("welcome.description")}</Text>
       </View>
 
       <View style={styles.form}>
-        <Text style={styles.label}>¿Cuál es tu nombre?</Text>
+        <Text style={styles.label}>{t("welcome.nameQuestion")}</Text>
         <TextInput
           style={styles.input}
           value={name}
           onChangeText={setName}
-          placeholder="Escribe tu nombre aquí"
+          placeholder={t("welcome.namePlaceholder")}
           placeholderTextColor={"#6B7280"}
           selectionColor={colors.white}
         />
 
         <TouchableOpacity
           style={[styles.button, !name.trim() && styles.buttonDisabled]}
-          onPress={handleContinue}
           disabled={!name.trim()}
+          onPress={handleContinue}
         >
-          <Text style={styles.buttonText}>¡Comenzar!</Text>
+          <Text style={styles.buttonText}>{t("welcome.continueButton")}</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
