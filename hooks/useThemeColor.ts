@@ -1,21 +1,31 @@
+import { ColorKey, Colors, ThemeName } from "@/constants/Colors";
+import { useColorScheme } from "@/hooks/useColorScheme";
+
 /**
- * Learn more about light and dark modes:
- * https://docs.expo.dev/guides/color-schemes/
+ * Hook to get colors from the current theme
+ * @param colorName - Name of the color to get
+ * @param theme - Specific theme (optional). If not provided, the system/device theme will be used
+ * @returns The color corresponding to the current theme
  */
+export function useThemeColor(colorName: ColorKey, theme?: ThemeName): string {
+  const systemTheme = useColorScheme() as ThemeName;
+  const selectedTheme = theme || systemTheme || "light";
 
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+  return Colors[selectedTheme][colorName];
+}
 
-export function useThemeColor(
-  props: { light?: string; dark?: string },
-  colorName: keyof typeof Colors.light & keyof typeof Colors.dark
-) {
-  const theme = useColorScheme() ?? 'light';
-  const colorFromProps = props[theme];
+/**
+ * Hook to get the complete color object of the current theme
+ * @param theme - Specific theme (optional). If not provided, the system/device theme will be used
+ * @returns Object containing all colors from the current theme
+ */
+export function useTheme(theme?: ThemeName) {
+  const systemTheme = useColorScheme() as ThemeName;
+  const selectedTheme = theme || systemTheme || "light";
 
-  if (colorFromProps) {
-    return colorFromProps;
-  } else {
-    return Colors[theme][colorName];
-  }
+  return {
+    colors: Colors[selectedTheme],
+    isDark: selectedTheme === "dark",
+    isLight: selectedTheme === "light",
+  };
 }
