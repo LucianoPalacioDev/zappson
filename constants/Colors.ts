@@ -1,26 +1,43 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
+const baseLightColors = {
+  simpsonYellow: "#FFD700",
+  simpsonBlue: "#4A90E2",
+  simpsonOrange: "#FF8C00",
+  simpsonGreen: "#32CD32",
+  simpsonRed: "#FF4444",
+  simpsonPurple: "#8A2BE2",
+  white: "#FFFFFF",
+  black: "#000000",
+  transparent: "transparent",
+} as const;
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+// TODO: make a real dark theme
+const baseDarkColors = {
+  simpsonYellow: "#FFD700",
+  simpsonBlue: "#4A90E2",
+  simpsonOrange: "#FF8C00",
+  simpsonGreen: "#32CD32",
+  simpsonRed: "#FF4444",
+  simpsonPurple: "#8A2BE2",
+  white: "#FFFFFF",
+  black: "#000000",
+  transparent: "transparent",
+} as const;
+
+export const lightColors = {
+  ...baseLightColors,
+} as const;
+
+export const darkColors = {
+  ...baseDarkColors,
+} as const;
+
+export type ThemeColors = typeof lightColors;
 
 export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
-  },
-};
+  light: lightColors,
+  dark: darkColors,
+} as const;
+
+export type ThemeName = keyof typeof Colors;
+
+export type ColorKey = keyof ThemeColors;
