@@ -9,8 +9,8 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 
-import { useColorScheme } from "@/hooks/useColorScheme";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -45,7 +45,10 @@ export default function RootLayout() {
               name="screens/welcome/index"
               options={{ headerShown: false }}
             />
-            <Stack.Screen name="+not-found" />
+            <Stack.Screen
+              name="screens/not-found/index"
+              options={{ headerShown: false }}
+            />
           </Stack>
         </LinearGradient>
         <StatusBar style="dark" />
