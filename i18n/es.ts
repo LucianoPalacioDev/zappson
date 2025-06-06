@@ -7,6 +7,16 @@ export default {
     continueButton: 'Continuar',
     nameQuestion: '¿Cuál es tu nombre?'
   },
+  home: {
+    greeting: '¡Hola, {{name}}! 👋',
+    subtitle: '¿Qué te gustaría hacer hoy?',
+    randomEpisode: 'Episodio Aleatorio',
+    preferences: 'Preferencias',
+    settingsIcon: '⚙️',
+    tvIcon: '📺',
+    donutIcon: '🍩',
+    diceIcon: '🎲'
+  },
   notFound: {
     title: '¡Ups!',
     subtitle: 'Página no encontrada',

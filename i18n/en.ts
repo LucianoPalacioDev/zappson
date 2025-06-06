@@ -7,6 +7,16 @@ export default {
     continueButton: 'Continue',
     nameQuestion: 'What is your name?'
   },
+  home: {
+    greeting: 'Hello, {{name}}! 👋',
+    subtitle: 'What would you like to do today?',
+    randomEpisode: 'Random Episode',
+    preferences: 'Preferences',
+    settingsIcon: '⚙️',
+    tvIcon: '📺',
+    donutIcon: '🍩',
+    diceIcon: '🎲'
+  },
   notFound: {
     title: 'Oops!',
     subtitle: 'Page Not Found',

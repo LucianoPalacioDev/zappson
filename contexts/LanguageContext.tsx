@@ -19,6 +19,16 @@ type Translations = {
     continueButton: string;
     nameQuestion: string;
   };
+  home: {
+    greeting: string;
+    subtitle: string;
+    randomEpisode: string;
+    preferences: string;
+    settingsIcon: string;
+    tvIcon: string;
+    donutIcon: string;
+    diceIcon: string;
+  };
   notFound: {
     title: string;
     subtitle: string;
@@ -30,7 +40,7 @@ type Translations = {
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: (key: string, variables?: Record<string, any>) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -42,10 +52,19 @@ const translations: Record<Language, Translations> = {
   en: enTranslations,
 };
 
-const getNestedValue = (obj: any, key: string): string => {
-  return key
-    .split(".")
+const getNestedValue = (obj: any, key: string, variables?: Record<string, any>): string => {
+  const value = key
+    .split('.')
     .reduce((o, k) => (o && o[k] !== undefined ? o[k] : key), obj);
+  
+  if (typeof value === 'string' && variables) {
+    return Object.entries(variables).reduce(
+      (str, [varName, varValue]) => str.replace(new RegExp(`\\{\\{${varName}\\}\\}`), String(varValue)),
+      value
+    );
+  }
+  
+  return value;
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
@@ -55,8 +74,8 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
 
   const t = useMemo(
     () =>
-      (key: string): string => {
-        return getNestedValue(translations[language], key) || key;
+      (key: string, variables?: Record<string, any>): string => {
+        return getNestedValue(translations[language], key, variables) || key;
       },
     [language]
   );
