@@ -1,3 +1,6 @@
+import { ROUTES } from "@/constants/routes";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import { useColorScheme } from "@/hooks/useColorScheme";
 import {
   DarkTheme,
   DefaultTheme,
@@ -8,10 +11,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
-
-import { ROUTES } from "@/constants/routes";
-import { LanguageProvider } from "@/contexts/LanguageContext";
-import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();

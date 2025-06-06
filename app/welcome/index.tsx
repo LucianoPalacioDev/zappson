@@ -29,7 +29,7 @@ export default function WelcomeScreen() {
     try {
       setIsLoading(true);
       await SecureStore.setItemAsync(USERNAME_KEY, name.trim());
-      router.replace(ROUTES.HOME);
+      router.replace(`/${ROUTES.HOME}`);
     } catch (error) {
       console.error("Error saving name:", error);
     } finally {
