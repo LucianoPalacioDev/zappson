@@ -73,6 +73,9 @@ const useStyles = () => {
     buttonDisabled: {
       backgroundColor: "#9CA3AF",
     },
+    buttonLoading: {
+      opacity: 0.7,
+    },
     buttonText: {
       color: colors.white,
       fontSize: 18,

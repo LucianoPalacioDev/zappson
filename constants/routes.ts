@@ -1,9 +1,9 @@
 export const ROUTES = {
-  WELCOME: "screens/welcome/index",
-  HOME: "screens/home/index",
-  EPISODE: "screens/episode/index",
-  PREFERENCES: "screens/preferences/index",
-  NOT_FOUND: "screens/not-found/index",
+  WELCOME: "welcome",
+  HOME: "home",
+  EPISODE: "episode",
+  PREFERENCES: "preference",
+  NOT_FOUND: "not-found",
 } as const;
 
 export type AppRoute = keyof typeof ROUTES;

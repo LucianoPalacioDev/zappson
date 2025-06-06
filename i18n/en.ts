@@ -22,5 +22,8 @@ export default {
     subtitle: 'Page Not Found',
     description: 'The page you are looking for does not exist or has been removed. Why not go back to the home page?',
     goBackButton: 'Back to Home'
+  },
+  common: {
+    loading: 'Loading...'
   }
 };
