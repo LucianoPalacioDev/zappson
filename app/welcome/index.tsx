@@ -17,7 +17,7 @@ import useStyles from "./index.styles";
 
 export default function WelcomeScreen() {
   const [name, setName] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const { colors } = useTheme();
   const { t } = useLanguage();
   const router = useRouter();
