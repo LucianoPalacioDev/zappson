@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import useStyles from "@/styles/not-found.styles";
 import { useRouter } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
-import useStyles from "./index.styles";
 
 export default function NotFoundScreen() {
   const router = useRouter();

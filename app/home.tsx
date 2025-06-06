@@ -2,13 +2,13 @@ import { Colors } from "@/constants/Colors";
 import { ROUTES } from "@/constants/routes";
 import { USERNAME_KEY } from "@/constants/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import useStyles from "@/styles/home.styles";
 import { useRouter } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Animated, Text, TouchableOpacity, View } from "react-native";
-import useStyles from "./index.styles";
 
-const HomeScreen = () => {
+export default function HomeScreen() {
   const [userName, setUserName] = useState("");
   const router = useRouter();
   const { t } = useLanguage();
@@ -133,6 +133,4 @@ const HomeScreen = () => {
       </View>
     </View>
   );
-};
-
-export default HomeScreen;
+}

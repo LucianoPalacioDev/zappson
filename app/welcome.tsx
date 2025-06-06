@@ -2,6 +2,7 @@ import { ROUTES } from "@/constants/routes";
 import { USERNAME_KEY } from "@/constants/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTheme } from "@/hooks/useThemeColor";
+import useStyles from "@/styles/welcome.styles";
 import { useRouter } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 import { useState } from "react";
@@ -13,7 +14,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import useStyles from "./index.styles";
 
 export default function WelcomeScreen() {
   const [name, setName] = useState("");
