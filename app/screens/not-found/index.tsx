@@ -1,12 +1,12 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRouter } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
-import useNotFoundStyles from "./styles";
+import useStyles from "./styles";
 
 export default function NotFoundScreen() {
   const router = useRouter();
   const { t } = useLanguage();
-  const styles = useNotFoundStyles();
+  const styles = useStyles();
 
   const handleGoHome = () => {
     router.replace("/screens/welcome");
