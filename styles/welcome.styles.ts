@@ -57,11 +57,14 @@ const useStyles = () => {
       borderColor: colors.white,
       borderWidth: 1,
       borderRadius: 8,
-      paddingVertical: 12,
       paddingHorizontal: 16,
       fontSize: 16,
       color: colors.black,
       marginBottom: 24,
+    },
+    inputFocused: {
+      borderColor: colors.simpsonBlue,
+      borderWidth: 2,
     },
     button: {
       backgroundColor: colors.simpsonBlue,

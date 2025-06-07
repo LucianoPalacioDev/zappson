@@ -9,6 +9,7 @@ import { useState } from "react";
 import {
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -18,6 +19,7 @@ import {
 export default function WelcomeScreen() {
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isInputFocused, setIsInputFocused] = useState(false);
   const { colors } = useTheme();
   const { t } = useLanguage();
   const router = useRouter();
@@ -39,41 +41,53 @@ export default function WelcomeScreen() {
 
   return (
     <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === "ios" ? "padding" : undefined}
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}
     >
-      <View style={styles.header}>
-        <Text style={styles.title}>{t("welcome.title")}</Text>
-        <Text style={styles.emoji}>📺</Text>
-        <Text style={styles.subtitle}>{t("welcome.subtitle")}</Text>
-        <Text style={styles.description}>{t("welcome.description")}</Text>
-      </View>
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <Text style={styles.title}>{t("welcome.title")}</Text>
+            <Text style={styles.emoji}>📺</Text>
+            <Text style={styles.subtitle}>{t("welcome.subtitle")}</Text>
+            <Text style={styles.description}>{t("welcome.description")}</Text>
+          </View>
 
-      <View style={styles.form}>
-        <Text style={styles.label}>{t("welcome.nameQuestion")}</Text>
-        <TextInput
-          style={styles.input}
-          value={name}
-          onChangeText={setName}
-          placeholder={t("welcome.namePlaceholder")}
-          placeholderTextColor={"#6B7280"}
-          selectionColor={colors.white}
-        />
+          <View style={styles.form}>
+            <Text style={styles.label}>{t("welcome.nameQuestion")}</Text>
+            <TextInput
+              style={[styles.input, isInputFocused && styles.inputFocused]}
+              value={name}
+              onChangeText={setName}
+              placeholder={t("welcome.namePlaceholder")}
+              placeholderTextColor={"#6B7280"}
+              selectionColor={colors.black}
+              cursorColor={colors.black}
+              onFocus={() => setIsInputFocused(true)}
+              onBlur={() => setIsInputFocused(false)}
+              returnKeyType="done"
+            />
 
-        <TouchableOpacity
-          disabled={isLoading || !name.trim()}
-          style={[
-            styles.button,
-            !name.trim() && styles.buttonDisabled,
-            isLoading && styles.buttonLoading,
-          ]}
-          onPress={handleContinue}
-        >
-          <Text style={styles.buttonText}>
-            {isLoading ? t("common.loading") : t("welcome.continueButton")}
-          </Text>
-        </TouchableOpacity>
-      </View>
+            <TouchableOpacity
+              disabled={isLoading || !name.trim()}
+              style={[
+                styles.button,
+                !name.trim() && styles.buttonDisabled,
+                isLoading && styles.buttonLoading,
+              ]}
+              onPress={handleContinue}
+            >
+              <Text style={styles.buttonText}>
+                {isLoading ? t("common.loading") : t("welcome.continueButton")}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }
