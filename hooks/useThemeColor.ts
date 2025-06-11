@@ -1,4 +1,4 @@
-import { ColorKey, Colors, ThemeName } from "@/constants/Colors";
+import { ColorKey, Colors, ThemeName } from "@/constants/colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 /**

@@ -1,5 +1,5 @@
 import { ROUTES } from "@/constants/routes";
-import { USERNAME_KEY } from "@/constants/utils";
+import { USERNAME_KEY } from "@/constants/store-keys";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTheme } from "@/hooks/useThemeColor";
 import useStyles from "@/styles/welcome.styles";

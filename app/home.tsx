@@ -1,6 +1,6 @@
-import { Colors } from "@/constants/Colors";
+import { Colors } from "@/constants/colors";
 import { ROUTES } from "@/constants/routes";
-import { USERNAME_KEY } from "@/constants/utils";
+import { USERNAME_KEY } from "@/constants/store-keys";
 import { useLanguage } from "@/contexts/LanguageContext";
 import useStyles from "@/styles/home.styles";
 import { useRouter } from "expo-router";
