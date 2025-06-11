@@ -2,38 +2,23 @@ import { ROUTES } from "@/constants/routes";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRouter } from "expo-router";
 import { useCallback } from "react";
-import { StatusBar, Text, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import useStyles from "./styles";
+import { Text } from "react-native";
+import Header from "@/components/common/Header";
 
 export default function CustomHomeHeader() {
   const { t } = useLanguage();
   const router = useRouter();
-  const styles = useStyles();
 
   const handleSettings = useCallback(() => {
     router.push(`/${ROUTES.PREFERENCES}`);
   }, [router]);
 
   return (
-    <SafeAreaView edges={["top"]} style={styles.safeArea}>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      <View style={styles.navBar}>
-        <View style={styles.navLeft}>
-          <Text style={{ fontSize: 24 }}>{t("home.tvIcon")}</Text>
-          <Text style={styles.title}>{t("welcome.title")}</Text>
-        </View>
-        <TouchableOpacity
-          onPress={handleSettings}
-          style={styles.settingsButton}
-        >
-          <Text style={{ fontSize: 24 }}>{t("home.settingsIcon")}</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+    <Header
+      title={t("welcome.title")}
+      leftIcon={<Text style={{ fontSize: 24 }}>{t("home.tvIcon")}</Text>}
+      rightIcon={<Text style={{ fontSize: 24 }}>{t("home.settingsIcon")}</Text>}
+      onRightPress={handleSettings}
+    />
   );
 }

@@ -8,27 +8,33 @@ export default function useStyles() {
     safeArea: {
       backgroundColor: colors.simpsonYellow,
     },
-    navBar: {
+    container: {
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      paddingHorizontal: 16,
-      paddingBottom: 12,
+      padding: 10,
+      paddingTop: 0,
       backgroundColor: colors.simpsonYellow,
     },
-    navLeft: {
+    leftContainer: {
       flexDirection: "row",
       alignItems: "center",
       gap: 10,
-      paddingTop: 4,
     },
     title: {
       fontSize: 20,
       fontWeight: "bold",
       color: colors.black,
-    },
-    settingsButton: {
       padding: 8,
+    },
+    iconButton: {
+      padding: 8,
+      minWidth: 40,
+      alignItems: "center",
+    },
+    rightContainer: {
+      minWidth: 40,
+      alignItems: "flex-end",
     },
   });
 }
