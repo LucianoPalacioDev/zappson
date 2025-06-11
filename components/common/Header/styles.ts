@@ -23,8 +23,8 @@ export default function useStyles() {
     },
     title: {
       fontSize: 20,
-      fontWeight: "bold",
-      color: colors.black,
+      fontWeight: "800",
+      color: colors.white,
       padding: 8,
     },
     iconButton: {

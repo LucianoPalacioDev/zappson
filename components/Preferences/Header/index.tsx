@@ -1,9 +1,10 @@
 import Header from "@/components/common/Header";
+import { BackIcon } from "@/components/common/Icons/BackIcon";
 import { ROUTES } from "@/constants/routes";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRouter } from "expo-router";
 import { useCallback } from "react";
-import { Text } from "react-native";
+import { View } from "react-native";
 
 export default function CustomPreferencesHeader() {
   const router = useRouter();
@@ -16,7 +17,21 @@ export default function CustomPreferencesHeader() {
   return (
     <Header
       title={t("preferences.title")}
-      leftIcon={<Text style={{ fontSize: 24 }}>◀</Text>}
+      leftIcon={
+        <View
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: 20,
+            backgroundColor: "rgba(255, 255, 255, 0.3)",
+            justifyContent: "center",
+            alignItems: "center",
+            marginRight: 8,
+          }}
+        >
+          <BackIcon size={24} color="white" />
+        </View>
+      }
       onLeftPress={handleBack}
     />
   );
