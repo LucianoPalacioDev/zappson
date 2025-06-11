@@ -18,6 +18,33 @@ export default {
     donutIcon: "🍩",
     diceIcon: "🎲",
   },
+  preferences: {
+    title: "Preferences",
+    era: {
+      title: "🎭 Select Era",
+      all: { emoji: "📺", label: "All Eras" },
+      classic: { emoji: "👑", label: "Classic Era (S1-S8)" },
+      golden: { emoji: "⭐", label: "Golden Era (S9-S15)" },
+      modern: { emoji: "🆕", label: "Modern Era (S16+)" },
+    },
+    age: {
+      title: "🔞 Age Filter",
+      all: { emoji: "👨‍👩‍👧‍👦", label: "All Ages" },
+      atp: { emoji: "👶", label: "ATP Only" },
+      sam13: { emoji: "🧒", label: "TV-13" },
+      sam16: { emoji: "👦", label: "TV-16" },
+    },
+    specials: {
+      title: "🎃 Special Episodes",
+      label: "Include Treehouse of Horror",
+      description: "Halloween special episodes",
+      emoji: "👻",
+    },
+    buttons: {
+      save: "💾 Save Preferences",
+      cancel: "❌ Cancel",
+    },
+  },
   notFound: {
     title: "Oops!",
     subtitle: "Page Not Found",
