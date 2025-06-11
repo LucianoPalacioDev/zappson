@@ -76,13 +76,6 @@ export default function PreferencesScreen() {
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={handleBack} style={styles.backButton}>
-          <Text style={styles.backText}>◀</Text>
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>{t("preferences.title")}</Text>
-      </View>
-
       <View style={styles.content}>
         <Text style={styles.sectionTitle}>{t("preferences.era.title")}</Text>
         {eras.map((era) => (

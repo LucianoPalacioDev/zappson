@@ -1,4 +1,5 @@
 import CustomHomeHeader from "@/components/Home/Header";
+import CustomPreferencesHeader from "@/components/Preferences/Header";
 import { ROUTES } from "@/constants/routes";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { useColorScheme } from "@/hooks/useColorScheme";
@@ -53,7 +54,13 @@ export default function RootLayout() {
               }}
             />
             <Stack.Screen name={ROUTES.EPISODE} />
-            <Stack.Screen name={ROUTES.PREFERENCES} />
+            <Stack.Screen
+              name={ROUTES.PREFERENCES}
+              options={{
+                headerShown: true,
+                header: () => <CustomPreferencesHeader />,
+              }}
+            />
           </Stack>
         </LinearGradient>
         <StatusBar style="dark" />

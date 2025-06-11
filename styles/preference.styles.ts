@@ -9,22 +9,6 @@ export default function useStyles() {
       flex: 1,
       backgroundColor: colors.transparent,
     },
-    header: {
-      flexDirection: "row",
-      alignItems: "center",
-      padding: 16,
-      backgroundColor: colors.simpsonYellow,
-    },
-    backButton: {
-      marginRight: 12,
-    },
-    backText: {
-      fontSize: 24,
-    },
-    headerTitle: {
-      fontSize: 20,
-      fontWeight: "bold",
-    },
     content: {
       padding: 16,
     },
