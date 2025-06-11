@@ -9,7 +9,7 @@ import * as SecureStore from "expo-secure-store";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { ScrollView, Switch, Text, TouchableOpacity, View } from "react-native";
 
-const PreferencesScreen: React.FC = () => {
+export default function PreferencesScreen() {
   const [preferences, setPreferences] = useState<Preferences>({
     era: "all",
     ageFilter: "all",
@@ -155,6 +155,4 @@ const PreferencesScreen: React.FC = () => {
       </View>
     </ScrollView>
   );
-};
-
-export default PreferencesScreen;
+}
