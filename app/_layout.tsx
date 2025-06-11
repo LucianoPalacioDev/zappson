@@ -1,3 +1,4 @@
+import CustomHomeHeader from "@/components/Home/Header";
 import { ROUTES } from "@/constants/routes";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { useColorScheme } from "@/hooks/useColorScheme";
@@ -44,7 +45,13 @@ export default function RootLayout() {
           >
             <Stack.Screen name={ROUTES.WELCOME} />
             <Stack.Screen name={ROUTES.NOT_FOUND} />
-            <Stack.Screen name={ROUTES.HOME} />
+            <Stack.Screen
+              name={ROUTES.HOME}
+              options={{
+                headerShown: true,
+                header: () => <CustomHomeHeader />,
+              }}
+            />
             <Stack.Screen name={ROUTES.EPISODE} />
             <Stack.Screen name={ROUTES.PREFERENCES} />
           </Stack>

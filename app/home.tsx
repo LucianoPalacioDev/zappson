@@ -64,24 +64,8 @@ export default function HomeScreen() {
     router.push(`/${ROUTES.PREFERENCES}`);
   }, [router]);
 
-  const handleSettings = useCallback(() => {
-    router.push(`/${ROUTES.PREFERENCES}`);
-  }, [router]);
-
   return (
     <View style={styles.container}>
-      <View style={styles.navBar}>
-        <View style={styles.navLeft}>
-          <Text style={{ fontSize: 24 }}>{t("home.tvIcon")}</Text>
-          <Text style={styles.title}>{t("welcome.title")}</Text>
-        </View>
-        <TouchableOpacity
-          onPress={handleSettings}
-          style={styles.settingsButton}
-        >
-          <Text style={{ fontSize: 24 }}>{t("home.settingsIcon")}</Text>
-        </TouchableOpacity>
-      </View>
       <View style={styles.content}>
         <View style={styles.greeting}>
           <Text style={styles.greetingText}>
