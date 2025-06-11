@@ -10,13 +10,12 @@ export default function useStyles() {
       backgroundColor: colors.transparent,
     },
     content: {
-      padding: 16,
+      margin: 16,
     },
-    sectionTitle: {
-      fontSize: 18,
-      fontWeight: "bold",
-      marginTop: 24,
-      marginBottom: 12,
+    optionContainer: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8,
     },
     option: {
       flexDirection: "row",
@@ -25,7 +24,6 @@ export default function useStyles() {
       borderRadius: 12,
       borderWidth: 1,
       borderColor: "#ccc",
-      marginBottom: 8,
     },
     optionSelected: {
       backgroundColor: "#DDF4FF",
@@ -51,7 +49,6 @@ export default function useStyles() {
       borderRadius: 12,
       borderWidth: 1,
       borderColor: "#ccc",
-      marginBottom: 24,
     },
     specialTextContainer: {
       flexDirection: "row",
@@ -62,12 +59,16 @@ export default function useStyles() {
       padding: 16,
       borderRadius: 12,
       alignItems: "center",
-      marginBottom: 12,
     },
     saveButtonText: {
       color: colors.white,
       fontWeight: "bold",
       fontSize: 16,
+    },
+    buttonsContainer: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 12,
     },
     cancelButton: {
       backgroundColor: "#999",

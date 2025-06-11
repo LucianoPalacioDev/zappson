@@ -1,3 +1,4 @@
+import FilterBox from "@/components/Preferences/FilterBox";
 import { ALL_AGE_TYPES, ALL_ERAS_TYPES } from "@/constants/filters";
 import { ROUTES } from "@/constants/routes";
 import { PREFERENCES_KEY } from "@/constants/store-keys";
@@ -77,74 +78,81 @@ export default function PreferencesScreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.sectionTitle}>{t("preferences.era.title")}</Text>
-        {eras.map((era) => (
-          <TouchableOpacity
-            key={era.value}
-            style={[
-              styles.option,
-              preferences.era === era.value && styles.optionSelected,
-            ]}
-            onPress={() => setPreferences({ ...preferences, era: era.value })}
-          >
-            <Text style={styles.optionEmoji}>{era.emoji}</Text>
-            <Text style={styles.optionText}>{era.label}</Text>
-          </TouchableOpacity>
-        ))}
-
-        <Text style={styles.sectionTitle}>{t("preferences.age.title")}</Text>
-        {ageFilters.map((filter) => (
-          <TouchableOpacity
-            key={filter.value}
-            style={[
-              styles.option,
-              preferences.ageFilter === filter.value && styles.optionSelected,
-            ]}
-            onPress={() =>
-              setPreferences({ ...preferences, ageFilter: filter.value })
-            }
-          >
-            <Text style={styles.optionEmoji}>{filter.emoji}</Text>
-            <Text style={styles.optionText}>{filter.label}</Text>
-          </TouchableOpacity>
-        ))}
-
-        <Text style={styles.sectionTitle}>
-          {t("preferences.specials.title")}
-        </Text>
-        <View style={styles.specialRow}>
-          <View style={styles.specialTextContainer}>
-            <Text style={styles.optionEmoji}>
-              {t("preferences.specials.emoji")}
-            </Text>
-            <View>
-              <Text style={styles.optionText}>
-                {t("preferences.specials.label")}
-              </Text>
-              <Text style={styles.optionSubtext}>
-                {t("preferences.specials.description")}
-              </Text>
-            </View>
+        <FilterBox title="preferences.era.title">
+          <View style={styles.optionContainer}>
+            {eras.map((era) => (
+              <TouchableOpacity
+                key={era.value}
+                style={[
+                  styles.option,
+                  preferences.era === era.value && styles.optionSelected,
+                ]}
+                onPress={() =>
+                  setPreferences({ ...preferences, era: era.value })
+                }
+              >
+                <Text style={styles.optionEmoji}>{era.emoji}</Text>
+                <Text style={styles.optionText}>{era.label}</Text>
+              </TouchableOpacity>
+            ))}
           </View>
-          <Switch
-            value={preferences.includeSpecials}
-            onValueChange={(value) =>
-              setPreferences({ ...preferences, includeSpecials: value })
-            }
-          />
+        </FilterBox>
+        <FilterBox title="preferences.age.title">
+          <View style={styles.optionContainer}>
+            {ageFilters.map((filter) => (
+              <TouchableOpacity
+                key={filter.value}
+                style={[
+                  styles.option,
+                  preferences.ageFilter === filter.value &&
+                    styles.optionSelected,
+                ]}
+                onPress={() =>
+                  setPreferences({ ...preferences, ageFilter: filter.value })
+                }
+              >
+                <Text style={styles.optionEmoji}>{filter.emoji}</Text>
+                <Text style={styles.optionText}>{filter.label}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </FilterBox>
+        <FilterBox title="preferences.specials.title">
+          <View style={styles.specialRow}>
+            <View style={styles.specialTextContainer}>
+              <Text style={styles.optionEmoji}>
+                {t("preferences.specials.emoji")}
+              </Text>
+              <View>
+                <Text style={styles.optionText}>
+                  {t("preferences.specials.label")}
+                </Text>
+                <Text style={styles.optionSubtext}>
+                  {t("preferences.specials.description")}
+                </Text>
+              </View>
+            </View>
+            <Switch
+              value={preferences.includeSpecials}
+              onValueChange={(value) =>
+                setPreferences({ ...preferences, includeSpecials: value })
+              }
+            />
+          </View>
+        </FilterBox>
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity onPress={handleSave} style={styles.saveButton}>
+            <Text style={styles.saveButtonText}>
+              {t("preferences.buttons.save")}
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={handleBack} style={styles.cancelButton}>
+            <Text style={styles.cancelButtonText}>
+              {t("preferences.buttons.cancel")}
+            </Text>
+          </TouchableOpacity>
         </View>
-
-        <TouchableOpacity onPress={handleSave} style={styles.saveButton}>
-          <Text style={styles.saveButtonText}>
-            {t("preferences.buttons.save")}
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={handleBack} style={styles.cancelButton}>
-          <Text style={styles.cancelButtonText}>
-            {t("preferences.buttons.cancel")}
-          </Text>
-        </TouchableOpacity>
       </View>
     </ScrollView>
   );
