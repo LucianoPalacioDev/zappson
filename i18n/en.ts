@@ -53,6 +53,7 @@ export default {
     goBackButton: "Back to Home",
   },
   common: {
-    loading: "Loading...",
+    // TODO: add a icon of sand clock
+    loading: "⏳ Loading...",
   },
 };

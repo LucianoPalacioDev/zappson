@@ -53,6 +53,6 @@ export default {
     goBackButton: "Volver al inicio",
   },
   common: {
-    loading: "Cargando...",
+    loading: "⏳ Cargando...",
   },
 };

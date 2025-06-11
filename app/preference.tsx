@@ -1,5 +1,9 @@
 import FilterBox from "@/components/Preferences/FilterBox";
-import { ALL_AGE_TYPES, ALL_ERAS_TYPES } from "@/constants/filters";
+import {
+  ALL_AGE_TYPES,
+  ALL_ERAS_TYPES,
+  DEFAULT_PREFERENCES,
+} from "@/constants/filters";
 import { ROUTES } from "@/constants/routes";
 import { PREFERENCES_KEY } from "@/constants/store-keys";
 import type { Age, Era, Preferences } from "@/constants/types";
@@ -11,11 +15,9 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { ScrollView, Switch, Text, TouchableOpacity, View } from "react-native";
 
 export default function PreferencesScreen() {
-  const [preferences, setPreferences] = useState<Preferences>({
-    era: "all",
-    ageFilter: "all",
-    includeSpecials: true,
-  });
+  const [preferences, setPreferences] =
+    useState<Preferences>(DEFAULT_PREFERENCES);
+  const [isLoading, setIsLoading] = useState(false);
 
   const styles = useStyles();
   const router = useRouter();
@@ -60,6 +62,7 @@ export default function PreferencesScreen() {
   }, []);
 
   const handleSave = useCallback(async () => {
+    setIsLoading(true);
     try {
       await SecureStore.setItemAsync(
         PREFERENCES_KEY,
@@ -68,6 +71,8 @@ export default function PreferencesScreen() {
       router.replace(`/${ROUTES.HOME}`);
     } catch (error) {
       console.error("Error saving preferences:", error);
+    } finally {
+      setIsLoading(false);
     }
   }, [preferences, router]);
 
@@ -143,7 +148,7 @@ export default function PreferencesScreen() {
         <View style={styles.buttonsContainer}>
           <TouchableOpacity onPress={handleSave} style={styles.saveButton}>
             <Text style={styles.saveButtonText}>
-              {t("preferences.buttons.save")}
+              {isLoading ? t("common.loading") : t("preferences.buttons.save")}
             </Text>
           </TouchableOpacity>
 
