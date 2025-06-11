@@ -5,18 +5,22 @@ export default function useStyles() {
   const { colors } = useTheme();
 
   return StyleSheet.create({
+    safeArea: {
+      backgroundColor: colors.simpsonYellow,
+    },
     navBar: {
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
       paddingHorizontal: 16,
-      paddingVertical: 12,
-      backgroundColor: colors.transparent,
+      paddingBottom: 12,
+      backgroundColor: colors.simpsonYellow,
     },
     navLeft: {
       flexDirection: "row",
       alignItems: "center",
       gap: 10,
+      paddingTop: 4,
     },
     title: {
       fontSize: 20,
