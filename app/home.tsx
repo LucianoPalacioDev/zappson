@@ -33,7 +33,6 @@ export default function HomeScreen() {
     loadUserName();
   }, [loadUserName]);
 
-  // Animation effect
   useEffect(() => {
     const animation = Animated.loop(
       Animated.sequence([
@@ -58,17 +57,14 @@ export default function HomeScreen() {
   }, [bounceAnim]);
 
   const handleRandomEpisode = useCallback(() => {
-    // Navigate to the episode screen
     router.push(`/${ROUTES.EPISODE}`);
   }, [router]);
 
   const handlePreferences = useCallback(() => {
-    // Navigate to the preferences screen
     router.push(`/${ROUTES.PREFERENCES}`);
   }, [router]);
 
   const handleSettings = useCallback(() => {
-    // Navigate to the settings screen (using preferences for now)
     router.push(`/${ROUTES.PREFERENCES}`);
   }, [router]);
 
@@ -94,7 +90,6 @@ export default function HomeScreen() {
           <Text style={styles.subtitle}>{t("home.subtitle")}</Text>
         </View>
 
-        {/* Character Illustration */}
         <Animated.Text
           style={[
             styles.character,
@@ -104,7 +99,6 @@ export default function HomeScreen() {
           {t("home.donutIcon")}
         </Animated.Text>
 
-        {/* Action Buttons */}
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             onPress={handleRandomEpisode}
