@@ -7,27 +7,19 @@ export default function useStyles() {
   return StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: colors.simpsonYellow,
+      backgroundColor: colors.transparent,
     },
-    loadingContainer: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: colors.simpsonYellow,
-    },
-    emoji: {
-      fontSize: 64,
-      marginBottom: 16,
-    },
-    loadingText: {
-      fontSize: 18,
-      marginBottom: 16,
+    content: {
+      margin: 16,
+      borderRadius: 12,
     },
     imageContainer: {
       backgroundColor: colors.simpsonBlue,
       height: 180,
       justifyContent: "center",
       alignItems: "center",
+      borderTopEndRadius: 12,
+      borderTopStartRadius: 12,
     },
     imageEmoji: {
       fontSize: 64,
@@ -35,9 +27,8 @@ export default function useStyles() {
     infoContainer: {
       padding: 20,
       backgroundColor: colors.white,
-      borderTopLeftRadius: 24,
-      borderTopRightRadius: 24,
-      marginTop: -24,
+      borderBottomEndRadius: 12,
+      borderBottomStartRadius: 12,
     },
     tags: {
       flexDirection: "row",
