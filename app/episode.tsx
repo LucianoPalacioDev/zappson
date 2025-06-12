@@ -47,38 +47,48 @@ export default function EpisodeScreen() {
   if (!episode) return null;
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.scrollContent}
+    >
       <View style={styles.content}>
         <View style={styles.imageContainer}>
           <Text style={styles.imageEmoji}>{episode.image}</Text>
         </View>
 
         <View style={styles.infoContainer}>
-          <View style={styles.tags}>
-            <Text style={styles.tagYellow}>
-              {t("episode.season", { season: episode.season })}{" "}
-              {t("episode.episode", { episode: episode.episode })}
-            </Text>
-            <Text style={styles.tagRed}>{episode.ageRating}</Text>
+          <View style={styles.infoContent}>
+            <View style={styles.tags}>
+              <Text style={styles.tagYellow}>
+                {t("episode.season", { season: episode.season })}{" "}
+                {t("episode.episode", { episode: episode.episode })}
+              </Text>
+              <Text style={styles.tagRed}>{episode.ageRating}</Text>
+            </View>
+
+            <Text style={styles.title}>{episode.title}</Text>
+            <Text style={styles.description}>{episode.description}</Text>
           </View>
 
-          <Text style={styles.title}>{episode.title}</Text>
-          <Text style={styles.description}>{episode.description}</Text>
+          <View style={styles.buttonsContainer}>
+            <TouchableOpacity
+              style={styles.buttonPrimary}
+              onPress={handleNewEpisode}
+            >
+              <Text style={styles.buttonText}>
+                {t("episode.buttons.newEpisode")}
+              </Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.buttonPrimary}
-            onPress={handleNewEpisode}
-          >
-            <Text style={styles.buttonText}>
-              {t("episode.buttons.newEpisode")}
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.buttonSecondary} onPress={handleBack}>
-            <Text style={styles.buttonText}>
-              {t("episode.buttons.backHome")}
-            </Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.buttonSecondary}
+              onPress={handleBack}
+            >
+              <Text style={styles.buttonText}>
+                {t("episode.buttons.backHome")}
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </ScrollView>

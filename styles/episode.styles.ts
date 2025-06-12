@@ -9,8 +9,14 @@ export default function useStyles() {
       flex: 1,
       backgroundColor: colors.transparent,
     },
+    scrollContent: {
+      flexGrow: 1,
+      paddingVertical: 16,
+    },
     content: {
-      margin: 16,
+      flex: 1,
+      marginHorizontal: 16,
+      flexDirection: "column",
       borderRadius: 12,
     },
     imageContainer: {
@@ -25,15 +31,19 @@ export default function useStyles() {
       fontSize: 64,
     },
     infoContainer: {
+      flex: 1,
       padding: 20,
       backgroundColor: colors.white,
       borderBottomEndRadius: 12,
       borderBottomStartRadius: 12,
+      justifyContent: "space-between",
+    },
+    infoContent: {
+      gap: 12,
     },
     tags: {
       flexDirection: "row",
       justifyContent: "space-between",
-      marginBottom: 12,
     },
     tagYellow: {
       backgroundColor: colors.simpsonYellow,
@@ -53,19 +63,21 @@ export default function useStyles() {
     title: {
       fontSize: 22,
       fontWeight: "bold",
-      marginBottom: 12,
     },
     description: {
       fontSize: 16,
       color: "#444",
-      marginBottom: 24,
+    },
+    buttonsContainer: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 12,
     },
     buttonPrimary: {
       backgroundColor: colors.simpsonBlue,
       padding: 16,
       borderRadius: 16,
       alignItems: "center",
-      marginBottom: 12,
     },
     buttonSecondary: {
       backgroundColor: "#666",
