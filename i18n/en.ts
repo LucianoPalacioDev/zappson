@@ -45,6 +45,16 @@ export default {
       cancel: "❌ Cancel",
     },
   },
+  episode: {
+    title: "Random Episode",
+    loading: "Looking for an episode...",
+    season: "S{{season}}",
+    episode: "E{{episode}}",
+    buttons: {
+      newEpisode: "🎲 Another Episode",
+      backHome: "🏠 Back to Home",
+    },
+  },
   notFound: {
     title: "Oops!",
     subtitle: "Page Not Found",
@@ -53,7 +63,6 @@ export default {
     goBackButton: "Back to Home",
   },
   common: {
-    // TODO: add a icon of sand clock
     loading: "⏳ Loading...",
   },
 };

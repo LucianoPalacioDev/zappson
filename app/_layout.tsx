@@ -1,3 +1,4 @@
+import CustomEpisodeHeader from "@/components/Episode/Header";
 import CustomHomeHeader from "@/components/Home/Header";
 import CustomPreferencesHeader from "@/components/Preferences/Header";
 import { ROUTES } from "@/constants/routes";
@@ -53,7 +54,13 @@ export default function RootLayout() {
                 header: () => <CustomHomeHeader />,
               }}
             />
-            <Stack.Screen name={ROUTES.EPISODE} />
+            <Stack.Screen
+              name={ROUTES.EPISODE}
+              options={{
+                headerShown: true,
+                header: () => <CustomEpisodeHeader />,
+              }}
+            />
             <Stack.Screen
               name={ROUTES.PREFERENCES}
               options={{

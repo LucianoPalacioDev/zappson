@@ -16,4 +16,13 @@ type Age = {
   emoji: string;
 };
 
-export { Age, Era, Preferences };
+type Episode = {
+  season: number;
+  episode: number;
+  title: string;
+  description: string;
+  ageRating: string;
+  image: string;
+};
+
+export { Age, Episode, Era, Preferences };

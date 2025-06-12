@@ -45,6 +45,16 @@ export default {
       cancel: "❌ Cancelar",
     },
   },
+  episode: {
+    title: "Episodio Aleatorio",
+    loading: "Buscando episodio...",
+    season: "T{{season}}",
+    episode: "E{{episode}}",
+    buttons: {
+      newEpisode: "🎲 Otro Episodio",
+      backHome: "🏠 Volver al Inicio",
+    },
+  },
   notFound: {
     title: "¡Ups!",
     subtitle: "Página no encontrada",
