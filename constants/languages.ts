@@ -1,0 +1,4 @@
+const ENGLISH_LANGUAGE = "en";
+const SPANISH_LANGUAGE = "es";
+
+export { ENGLISH_LANGUAGE, SPANISH_LANGUAGE };

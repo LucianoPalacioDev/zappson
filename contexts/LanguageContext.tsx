@@ -5,10 +5,11 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import { ENGLISH_LANGUAGE, SPANISH_LANGUAGE } from "../constants/languages";
 import enTranslations from "../i18n/en";
 import esTranslations from "../i18n/es";
 
-type Language = "es" | "en";
+type Language = typeof ENGLISH_LANGUAGE | typeof SPANISH_LANGUAGE;
 
 type Translations = {
   welcome: {
@@ -52,25 +53,30 @@ const translations: Record<Language, Translations> = {
   en: enTranslations,
 };
 
-const getNestedValue = (obj: any, key: string, variables?: Record<string, any>): string => {
+const getNestedValue = (
+  obj: any,
+  key: string,
+  variables?: Record<string, any>
+): string => {
   const value = key
-    .split('.')
+    .split(".")
     .reduce((o, k) => (o && o[k] !== undefined ? o[k] : key), obj);
-  
-  if (typeof value === 'string' && variables) {
+
+  if (typeof value === "string" && variables) {
     return Object.entries(variables).reduce(
-      (str, [varName, varValue]) => str.replace(new RegExp(`\\{\\{${varName}\\}\\}`), String(varValue)),
+      (str, [varName, varValue]) =>
+        str.replace(new RegExp(`\\{\\{${varName}\\}\\}`), String(varValue)),
       value
     );
   }
-  
+
   return value;
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<Language>("es");
+  const [language, setLanguage] = useState<Language>(SPANISH_LANGUAGE);
 
   const t = useMemo(
     () =>
