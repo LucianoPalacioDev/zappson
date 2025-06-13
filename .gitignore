@@ -38,7 +38,11 @@ yarn-error.*
 
 app-example
 
+# Scripts data
 scripts/get-episodes/data
 scripts/save-episodes/data
 scripts/save-episodes/utils/serviceAccountKey.json
+
+# Firebase config
+config/firebase.config.json
 
