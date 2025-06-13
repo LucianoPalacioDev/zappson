@@ -14,10 +14,7 @@ let db: Firestore;
 try {
   if (!getApps().length) {
     firebaseApp = initializeApp(firebaseConfig);
-    initializeFirestore(firebaseApp, {
-      // TODO: check if this is necessary
-      experimentalForceLongPolling: true,
-    });
+    initializeFirestore(firebaseApp, {});
   } else {
     firebaseApp = getApps()[0];
   }
