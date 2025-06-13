@@ -54,6 +54,12 @@ export default {
       newEpisode: "🎲 Otro Episodio",
       backHome: "🏠 Volver al Inicio",
     },
+    errors: {
+      fetchError:
+        "No pudimos cargar los episodios. Por favor, verifica tu conexión e inténtalo de nuevo.",
+      retryError:
+        "Estamos teniendo problemas para cargar los episodios. Por favor, inténtalo de nuevo más tarde.",
+    },
   },
   notFound: {
     title: "¡Ups!",
@@ -64,5 +70,7 @@ export default {
   },
   common: {
     loading: "⏳ Cargando...",
+    retry: "🔄 Reintentar",
+    backToHome: "🏠 Volver al Inicio",
   },
 };

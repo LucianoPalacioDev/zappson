@@ -1,16 +1,20 @@
+import ErrorSeasonFetch from "@/components/Episode/Error/index";
 import LoadingEpisode from "@/components/Episode/Loading";
 import { DEFAULT_EPISODES } from "@/constants/episodes";
 import { ROUTES } from "@/constants/routes";
-import { Episode } from "@/constants/types";
+import { Episode, SeasonFirestore } from "@/constants/types";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getSeasons } from "@/services/firestoreService";
 import useStyles from "@/styles/episode.styles";
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 export default function EpisodeScreen() {
+  const [seasons, setSeasons] = useState<SeasonFirestore[]>([]);
   const [episode, setEpisode] = useState<Episode | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const router = useRouter();
   const styles = useStyles();
@@ -21,6 +25,23 @@ export default function EpisodeScreen() {
     setEpisode(episodes[randomIndex]);
     setLoading(false);
   };
+
+  useEffect(() => {
+    const fetchSeasons = async () => {
+      try {
+        const seasonsData = await getSeasons();
+        setSeasons(seasonsData);
+        return true;
+      } catch (err) {
+        console.log("Error fetching seasons:", err);
+        setError(t("episode.errors.fetchError"));
+        setLoading(false);
+        return false;
+      }
+    };
+
+    fetchSeasons();
+  }, [t]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -40,8 +61,32 @@ export default function EpisodeScreen() {
     router.replace(`/${ROUTES.HOME}`);
   };
 
+  const handleRetry = async () => {
+    setError(null);
+    setLoading(true);
+    try {
+      const seasonsData = await getSeasons();
+      setSeasons(seasonsData);
+      setLoading(false);
+    } catch (err) {
+      console.log("Error retrying fetch:", err);
+      setError(t("episode.errors.retryError"));
+      setLoading(false);
+    }
+  };
+
   if (loading) {
     return <LoadingEpisode />;
+  }
+
+  if (error) {
+    return (
+      <ErrorSeasonFetch
+        error={error}
+        handleBack={handleBack}
+        handleRetry={handleRetry}
+      />
+    );
   }
 
   if (!episode) return null;

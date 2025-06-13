@@ -54,6 +54,12 @@ export default {
       newEpisode: "🎲 Another Episode",
       backHome: "🏠 Back to Home",
     },
+    errors: {
+      fetchError:
+        "We couldn't load the episodes. Please check your connection and try again.",
+      retryError:
+        "We're having trouble loading the episodes. Please try again later.",
+    },
   },
   notFound: {
     title: "Oops!",
@@ -64,5 +70,8 @@ export default {
   },
   common: {
     loading: "⏳ Loading...",
+    retry: "🔄 Try Again",
+    // TODO: use this as common
+    backToHome: "🏠 Back to Home",
   },
 };

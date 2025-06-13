@@ -25,4 +25,25 @@ type Episode = {
   image: string;
 };
 
-export { Age, Episode, Era, Preferences };
+type EpisodeFirestore = {
+  id: string;
+  episodeNumber: number;
+  title: string;
+  duration: number;
+  episodeId: string;
+  rating: string;
+  description: {
+    brief: string;
+    full: string;
+    medium: string;
+  };
+};
+
+type SeasonFirestore = {
+  id: string;
+  seasonNumber: number;
+  episodeCount: number;
+  episodes: EpisodeFirestore[];
+};
+
+export { Age, Episode, EpisodeFirestore, Era, Preferences, SeasonFirestore };
