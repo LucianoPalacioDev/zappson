@@ -30,9 +30,8 @@ export default {
     age: {
       title: "🔞 Age Filter",
       all: { emoji: "👨‍👩‍👧‍👦", label: "All Ages" },
-      atp: { emoji: "👶", label: "ATP Only" },
-      sam13: { emoji: "🧒", label: "TV-13" },
-      sam16: { emoji: "👦", label: "TV-16" },
+      sam12: { emoji: "🧒", label: "TV-12" },
+      sam14: { emoji: "👦", label: "TV-14" },
     },
     specials: {
       title: "🎃 Special Episodes",

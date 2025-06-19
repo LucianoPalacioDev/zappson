@@ -30,9 +30,8 @@ export default {
     age: {
       title: "🔞 Filtro por Edad",
       all: { emoji: "👨‍👩‍👧‍👦", label: "Todas las edades" },
-      atp: { emoji: "👶", label: "Solo ATP" },
-      sam13: { emoji: "🧒", label: "SAM 13+" },
-      sam16: { emoji: "👦", label: "SAM 16+" },
+      sam12: { emoji: "🧒", label: "SAM 12+" },
+      sam14: { emoji: "👦", label: "SAM 14+" },
     },
     specials: {
       title: "🎃 Episodios Especiales",

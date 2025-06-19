@@ -8,6 +8,7 @@ type Era = {
   value: string;
   label: string;
   emoji: string;
+  seasons: number[];
 };
 
 type Age = {

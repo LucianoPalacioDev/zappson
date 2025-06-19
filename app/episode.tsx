@@ -1,12 +1,15 @@
 import ErrorSeasonFetch from "@/components/Episode/Error/index";
 import LoadingEpisode from "@/components/Episode/Loading";
 import { DEFAULT_EPISODES } from "@/constants/episodes";
+import { DEFAULT_PREFERENCES } from "@/constants/filters";
 import { ROUTES } from "@/constants/routes";
-import { Episode, SeasonFirestore } from "@/constants/types";
+import { PREFERENCES_KEY } from "@/constants/store-keys";
+import { Episode, Preferences, SeasonFirestore } from "@/constants/types";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getSeasons } from "@/services/firestoreService";
 import useStyles from "@/styles/episode.styles";
 import { useRouter } from "expo-router";
+import * as SecureStore from "expo-secure-store";
 import { useEffect, useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
@@ -29,7 +32,14 @@ export default function EpisodeScreen() {
   useEffect(() => {
     const fetchSeasons = async () => {
       try {
-        const seasonsData = await getSeasons();
+        const savedPreferencesString = await SecureStore.getItemAsync(
+          PREFERENCES_KEY
+        );
+        const savedPreferences = JSON.parse(savedPreferencesString || "{}");
+        const seasonsData = await getSeasons({
+          preferences: savedPreferences as Preferences,
+        });
+        // TODO: format and save just the episodes
         setSeasons(seasonsData);
         return true;
       } catch (err) {
@@ -45,6 +55,7 @@ export default function EpisodeScreen() {
 
   useEffect(() => {
     setTimeout(() => {
+      // TODO: send the correct episodes
       fetchEpisode(DEFAULT_EPISODES);
     }, 1500);
   }, []);
@@ -53,6 +64,7 @@ export default function EpisodeScreen() {
     setLoading(true);
     setEpisode(null);
     setTimeout(() => {
+      // TODO: send the correct episodes
       fetchEpisode(DEFAULT_EPISODES);
     }, 1500);
   };
@@ -65,7 +77,9 @@ export default function EpisodeScreen() {
     setError(null);
     setLoading(true);
     try {
-      const seasonsData = await getSeasons();
+      const seasonsData = await getSeasons({
+        preferences: DEFAULT_PREFERENCES,
+      });
       setSeasons(seasonsData);
       setLoading(false);
     } catch (err) {

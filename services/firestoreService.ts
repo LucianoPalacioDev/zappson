@@ -1,9 +1,15 @@
 import { db } from "@/config/firebase";
 import { COLLECTIONS } from "@/constants/firebase-collections";
+import type { Preferences } from "@/constants/types";
 import { EpisodeFirestore, SeasonFirestore } from "@/constants/types";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
-export const getSeasons = async (): Promise<SeasonFirestore[]> => {
+// TODO: work with the preferences
+export const getSeasons = async ({
+  preferences,
+}: {
+  preferences: Preferences;
+}): Promise<SeasonFirestore[]> => {
   try {
     const seasonsRef = collection(db, COLLECTIONS.SEASONS);
     const q = query(seasonsRef, orderBy("seasonNumber", "asc"));
