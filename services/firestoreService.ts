@@ -18,7 +18,6 @@ const getFirebaseRating = (rating: string) => {
   }
 };
 
-// TODO: work with the preferences
 export const getSeasons = async ({
   preferences,
 }: {
@@ -29,8 +28,13 @@ export const getSeasons = async ({
     const q = query(seasonsRef, orderBy("seasonNumber", "asc"));
     const querySnapshot = await getDocs(q);
 
+    const filteredSeasons = querySnapshot.docs.filter((doc) => {
+      const seasonData = doc.data();
+      return preferences.era.seasons.includes(seasonData.seasonNumber);
+    });
+
     const seasonsWithEpisodes = await Promise.all(
-      querySnapshot.docs.map(async (doc) => {
+      filteredSeasons.map(async (doc) => {
         const seasonData = doc.data();
 
         const episodesRef = collection(
