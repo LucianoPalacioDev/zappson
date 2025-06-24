@@ -38,6 +38,7 @@ export const getSeasons = async ({
               id: episodeDoc.id,
               episodeId: episodeDoc.id,
               episodeNumber: episodeData.episodeNumber,
+              seasonNumber: seasonData.seasonNumber,
               title: episodeData.title,
               duration: episodeData.duration,
               rating: episodeData.rating,
@@ -59,7 +60,7 @@ export const getSeasons = async ({
       })
     );
 
-    return [seasonsWithEpisodes[0]];
+    return seasonsWithEpisodes;
   } catch (error) {
     console.error("Error fetching seasons with episodes:", error);
     throw error;

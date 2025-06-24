@@ -29,6 +29,7 @@ type Episode = {
 type EpisodeFirestore = {
   id: string;
   episodeNumber: number;
+  seasonNumber: number;
   title: string;
   duration: number;
   episodeId: string;

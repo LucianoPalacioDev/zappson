@@ -128,7 +128,7 @@ export default function EpisodeScreen() {
           <View style={styles.infoContent}>
             <View style={styles.tags}>
               <Text style={styles.tagYellow}>
-                {t("episode.season", { season: episode.episodeNumber })}{" "}
+                {t("episode.season", { season: episode.seasonNumber })}{" "}
                 {t("episode.episode", { episode: episode.episodeNumber })}
               </Text>
               <Text style={styles.tagRed}>{episode.rating}</Text>
