@@ -1,20 +1,20 @@
 type Preferences = {
-  era: string;
-  ageFilter: string;
+  era: Era;
+  ageFilter: Age;
   includeSpecials: boolean;
 };
 
 type Era = {
   value: string;
-  label: string;
-  emoji: string;
+  label?: string;
+  emoji?: string;
   seasons: number[];
 };
 
 type Age = {
   value: string;
-  label: string;
-  emoji: string;
+  label?: string;
+  emoji?: string;
 };
 
 type Episode = {

@@ -34,8 +34,9 @@ export default function PreferencesScreen() {
             value: key.value,
             emoji: t(`preferences.era.${key.value}.emoji`),
             label: t(`preferences.era.${key.value}.label`),
+            seasons: key.seasons,
           } as const)
-      ).filter((era): era is Era => Boolean(era.emoji && era.label)),
+      ),
       ageFilters: ALL_AGE_TYPES.map(
         (key) =>
           ({
@@ -43,7 +44,7 @@ export default function PreferencesScreen() {
             emoji: t(`preferences.age.${key.value}.emoji`),
             label: t(`preferences.age.${key.value}.label`),
           } as const)
-      ).filter((age): age is Age => Boolean(age.emoji && age.label)),
+      ),
     };
   }, [t]);
 
@@ -90,10 +91,13 @@ export default function PreferencesScreen() {
                 key={era.value}
                 style={[
                   styles.option,
-                  preferences.era === era.value && styles.optionSelected,
+                  preferences.era.value === era.value && styles.optionSelected,
                 ]}
                 onPress={() =>
-                  setPreferences({ ...preferences, era: era.value })
+                  setPreferences({
+                    ...preferences,
+                    era: { value: era.value, seasons: era.seasons },
+                  })
                 }
               >
                 <Text style={styles.optionEmoji}>{era.emoji}</Text>
@@ -109,11 +113,14 @@ export default function PreferencesScreen() {
                 key={filter.value}
                 style={[
                   styles.option,
-                  preferences.ageFilter === filter.value &&
+                  preferences.ageFilter.value === filter.value &&
                     styles.optionSelected,
                 ]}
                 onPress={() =>
-                  setPreferences({ ...preferences, ageFilter: filter.value })
+                  setPreferences({
+                    ...preferences,
+                    ageFilter: { value: filter.value },
+                  })
                 }
               >
                 <Text style={styles.optionEmoji}>{filter.emoji}</Text>

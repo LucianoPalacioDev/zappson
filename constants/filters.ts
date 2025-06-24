@@ -19,8 +19,11 @@ const generateSeasons = (start: number, end: number): number[] =>
   Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
 export const DEFAULT_PREFERENCES: Preferences = {
-  era: ERA_ALL,
-  ageFilter: AGE_ALL,
+  era: {
+    value: ERA_ALL,
+    seasons: generateSeasons(ALL_SEASONS_RANGE[0], ALL_SEASONS_RANGE[1]),
+  },
+  ageFilter: { value: AGE_ALL },
   includeSpecials: true,
 };
 
