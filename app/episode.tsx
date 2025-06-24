@@ -1,33 +1,47 @@
 import ErrorSeasonFetch from "@/components/Episode/Error/index";
 import LoadingEpisode from "@/components/Episode/Loading";
-import { DEFAULT_EPISODES } from "@/constants/episodes";
 import { DEFAULT_PREFERENCES } from "@/constants/filters";
 import { ROUTES } from "@/constants/routes";
 import { PREFERENCES_KEY } from "@/constants/store-keys";
-import { Episode, Preferences, SeasonFirestore } from "@/constants/types";
+import {
+  EpisodeFirestore,
+  Preferences,
+  SeasonFirestore,
+} from "@/constants/types";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getSeasons } from "@/services/firestoreService";
 import useStyles from "@/styles/episode.styles";
 import { useRouter } from "expo-router";
 import * as SecureStore from "expo-secure-store";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
+const getEpisodesFromSeasons = (seasons: SeasonFirestore[]) => {
+  return seasons.flatMap((season) => season.episodes);
+};
+
 export default function EpisodeScreen() {
-  const [seasons, setSeasons] = useState<SeasonFirestore[]>([]);
-  const [episode, setEpisode] = useState<Episode | null>(null);
+  const [episodes, setEpisodes] = useState<EpisodeFirestore[]>([]);
+  const [episode, setEpisode] = useState<EpisodeFirestore | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
   const router = useRouter();
   const styles = useStyles();
   const { t } = useLanguage();
 
-  const fetchEpisode = (episodes: Episode[]) => {
-    const randomIndex = Math.floor(Math.random() * episodes.length);
-    setEpisode(episodes[randomIndex]);
+  const fetchEpisode = useCallback(() => {
+    if (episodes.length === 0) return;
+
+    setEpisode((prevEpisode) => {
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * episodes.length);
+      } while (episodes[randomIndex].id === prevEpisode?.id);
+      return episodes[randomIndex];
+    });
+
     setLoading(false);
-  };
+  }, [episodes]);
 
   useEffect(() => {
     const fetchSeasons = async () => {
@@ -39,8 +53,8 @@ export default function EpisodeScreen() {
         const seasonsData = await getSeasons({
           preferences: savedPreferences as Preferences,
         });
-        // TODO: format and save just the episodes
-        setSeasons(seasonsData);
+        const episodesData = getEpisodesFromSeasons(seasonsData);
+        setEpisodes(episodesData);
         return true;
       } catch (err) {
         console.log("Error fetching seasons:", err);
@@ -54,19 +68,13 @@ export default function EpisodeScreen() {
   }, [t]);
 
   useEffect(() => {
-    setTimeout(() => {
-      // TODO: send the correct episodes
-      fetchEpisode(DEFAULT_EPISODES);
-    }, 1500);
-  }, []);
+    fetchEpisode();
+  }, [fetchEpisode]);
 
   const handleNewEpisode = () => {
     setLoading(true);
     setEpisode(null);
-    setTimeout(() => {
-      // TODO: send the correct episodes
-      fetchEpisode(DEFAULT_EPISODES);
-    }, 1500);
+    fetchEpisode();
   };
 
   const handleBack = () => {
@@ -80,7 +88,8 @@ export default function EpisodeScreen() {
       const seasonsData = await getSeasons({
         preferences: DEFAULT_PREFERENCES,
       });
-      setSeasons(seasonsData);
+      const episodesData = getEpisodesFromSeasons(seasonsData);
+      setEpisodes(episodesData);
       setLoading(false);
     } catch (err) {
       console.log("Error retrying fetch:", err);
@@ -112,21 +121,21 @@ export default function EpisodeScreen() {
     >
       <View style={styles.content}>
         <View style={styles.imageContainer}>
-          <Text style={styles.imageEmoji}>{episode.image}</Text>
+          <Text style={styles.imageEmoji}>📺</Text>
         </View>
 
         <View style={styles.infoContainer}>
           <View style={styles.infoContent}>
             <View style={styles.tags}>
               <Text style={styles.tagYellow}>
-                {t("episode.season", { season: episode.season })}{" "}
-                {t("episode.episode", { episode: episode.episode })}
+                {t("episode.season", { season: episode.episodeNumber })}{" "}
+                {t("episode.episode", { episode: episode.episodeNumber })}
               </Text>
-              <Text style={styles.tagRed}>{episode.ageRating}</Text>
+              <Text style={styles.tagRed}>{episode.rating}</Text>
             </View>
 
             <Text style={styles.title}>{episode.title}</Text>
-            <Text style={styles.description}>{episode.description}</Text>
+            <Text style={styles.description}>{episode.description.full}</Text>
           </View>
 
           <View style={styles.buttonsContainer}>
