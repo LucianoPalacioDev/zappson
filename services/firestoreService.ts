@@ -28,9 +28,13 @@ export const getSeasons = async ({
     const q = query(seasonsRef, orderBy("seasonNumber", "asc"));
     const querySnapshot = await getDocs(q);
 
+    const preferencesEraSeasons = preferences.era.seasons;
+    const preferencesAgeFilter = preferences.ageFilter.value;
+    const preferencesSpecials = preferences.includeSpecials;
+
     const filteredSeasons = querySnapshot.docs.filter((doc) => {
       const seasonData = doc.data();
-      return preferences.era.seasons.includes(seasonData.seasonNumber);
+      return preferencesEraSeasons.includes(seasonData.seasonNumber);
     });
 
     const seasonsWithEpisodes = await Promise.all(
@@ -44,7 +48,7 @@ export const getSeasons = async ({
           COLLECTIONS.EPISODES
         );
 
-        const firebaseRating = getFirebaseRating(preferences.ageFilter.value);
+        const firebaseRating = getFirebaseRating(preferencesAgeFilter);
 
         const episodesQuery = query(
           episodesRef,
@@ -56,6 +60,12 @@ export const getSeasons = async ({
         episodesSnapshot.forEach((episodeDoc) => {
           const episodeData = episodeDoc.data();
           const episodeRating = episodeData.rating || "all";
+          const isTreehouseOfHorror = episodeData.isTreehouseOfHorror;
+
+          if (isTreehouseOfHorror && !preferencesSpecials) {
+            return;
+          }
+
           if (firebaseRating === AGE_ALL || episodeRating === firebaseRating) {
             episodes.push({
               id: episodeDoc.id,
@@ -77,7 +87,7 @@ export const getSeasons = async ({
         return {
           id: doc.id,
           seasonNumber: seasonData.seasonNumber,
-          episodeCount: seasonData.episodeCount || episodes.length,
+          episodeCount: episodes.length,
           episodes: episodes,
         } as SeasonFirestore;
       })
