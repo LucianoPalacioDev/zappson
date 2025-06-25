@@ -21,17 +21,23 @@ export default {
   preferences: {
     title: "Preferences",
     era: {
-      title: "🎭 Select Era",
+      title: "🎭 Era",
       all: { emoji: "📺", label: "All Eras" },
       classic: { emoji: "👑", label: "Classic Era (S1-S8)" },
       golden: { emoji: "⭐", label: "Golden Era (S9-S15)" },
       modern: { emoji: "🆕", label: "Modern Era (S16+)" },
     },
     age: {
-      title: "🔞 Age Filter",
+      title: "🔞 Rating",
       all: { emoji: "👨‍👩‍👧‍👦", label: "All Ages" },
       sam12: { emoji: "🧒", label: "TV-12" },
       sam14: { emoji: "👦", label: "TV-14" },
+    },
+    descriptionLength: {
+      title: "Episode Description",
+      brief: { emoji: "📏", label: "Brief" },
+      medium: { emoji: "📝", label: "Medium" },
+      full: { emoji: "📚", label: "Full" },
     },
     specials: {
       title: "🎃 Special Episodes",

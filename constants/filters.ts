@@ -15,6 +15,10 @@ export const AGE_ALL = "all";
 export const AGE_12_PLUS = "sam12";
 export const AGE_14_PLUS = "sam14";
 
+export const DESCRIPTION_LENGTH_BRIEF = "brief";
+export const DESCRIPTION_LENGTH_MEDIUM = "medium";
+export const DESCRIPTION_LENGTH_FULL = "full";
+
 const generateSeasons = (start: number, end: number): number[] =>
   Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
@@ -25,6 +29,7 @@ export const DEFAULT_PREFERENCES: Preferences = {
   },
   ageFilter: { value: AGE_ALL },
   includeSpecials: true,
+  descriptionLength: DESCRIPTION_LENGTH_BRIEF,
 };
 
 export const ALL_ERAS_TYPES = [

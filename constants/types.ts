@@ -1,23 +1,35 @@
-type Preferences = {
+import {
+  DESCRIPTION_LENGTH_BRIEF,
+  DESCRIPTION_LENGTH_FULL,
+  DESCRIPTION_LENGTH_MEDIUM,
+} from "./filters";
+
+export type DescriptionLength =
+  | typeof DESCRIPTION_LENGTH_BRIEF
+  | typeof DESCRIPTION_LENGTH_MEDIUM
+  | typeof DESCRIPTION_LENGTH_FULL;
+
+export type Preferences = {
   era: Era;
   ageFilter: Age;
   includeSpecials: boolean;
+  descriptionLength: DescriptionLength;
 };
 
-type Era = {
+export type Era = {
   value: string;
   label?: string;
   emoji?: string;
   seasons: number[];
 };
 
-type Age = {
+export type Age = {
   value: string;
   label?: string;
   emoji?: string;
 };
 
-type Episode = {
+export type Episode = {
   season: number;
   episode: number;
   title: string;
@@ -26,7 +38,7 @@ type Episode = {
   image: string;
 };
 
-type EpisodeFirestore = {
+export type EpisodeFirestore = {
   id: string;
   episodeNumber: number;
   seasonNumber: number;
@@ -34,18 +46,12 @@ type EpisodeFirestore = {
   duration: number;
   episodeId: string;
   rating: string;
-  description: {
-    brief: string;
-    full: string;
-    medium: string;
-  };
+  description: string;
 };
 
-type SeasonFirestore = {
+export type SeasonFirestore = {
   id: string;
   seasonNumber: number;
   episodeCount: number;
   episodes: EpisodeFirestore[];
 };
-
-export { Age, Episode, EpisodeFirestore, Era, Preferences, SeasonFirestore };

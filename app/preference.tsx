@@ -3,6 +3,9 @@ import {
   ALL_AGE_TYPES,
   ALL_ERAS_TYPES,
   DEFAULT_PREFERENCES,
+  DESCRIPTION_LENGTH_BRIEF,
+  DESCRIPTION_LENGTH_FULL,
+  DESCRIPTION_LENGTH_MEDIUM,
 } from "@/constants/filters";
 import { ROUTES } from "@/constants/routes";
 import { PREFERENCES_KEY } from "@/constants/store-keys";
@@ -150,6 +153,39 @@ export default function PreferencesScreen() {
                 setPreferences({ ...preferences, includeSpecials: value })
               }
             />
+          </View>
+        </FilterBox>
+        <FilterBox title="preferences.descriptionLength.title">
+          <View style={styles.optionContainer}>
+            {(
+              [
+                DESCRIPTION_LENGTH_BRIEF,
+                DESCRIPTION_LENGTH_MEDIUM,
+                DESCRIPTION_LENGTH_FULL,
+              ] as const
+            ).map((length) => (
+              <TouchableOpacity
+                key={length}
+                style={[
+                  styles.option,
+                  preferences.descriptionLength === length &&
+                    styles.optionSelected,
+                ]}
+                onPress={() =>
+                  setPreferences({
+                    ...preferences,
+                    descriptionLength: length,
+                  })
+                }
+              >
+                <Text style={styles.optionEmoji}>
+                  {t(`preferences.descriptionLength.${length}.emoji`)}
+                </Text>
+                <Text style={styles.optionText}>
+                  {t(`preferences.descriptionLength.${length}.label`)}
+                </Text>
+              </TouchableOpacity>
+            ))}
           </View>
         </FilterBox>
         <View style={styles.buttonsContainer}>

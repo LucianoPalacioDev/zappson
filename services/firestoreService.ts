@@ -31,6 +31,7 @@ export const getSeasons = async ({
     const preferencesEraSeasons = preferences.era.seasons;
     const preferencesAgeFilter = preferences.ageFilter.value;
     const preferencesSpecials = preferences.includeSpecials;
+    const preferencesDescriptionLength = preferences.descriptionLength;
 
     const filteredSeasons = querySnapshot.docs.filter((doc) => {
       const seasonData = doc.data();
@@ -75,11 +76,9 @@ export const getSeasons = async ({
               title: episodeData.title,
               duration: episodeData.duration,
               rating: episodeRating,
-              description: {
-                brief: episodeData.description?.brief || "",
-                full: episodeData.description?.full || "",
-                medium: episodeData.description?.medium || "",
-              },
+              description: (episodeData.description || {})[
+                preferencesDescriptionLength
+              ],
             });
           }
         });

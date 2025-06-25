@@ -21,17 +21,23 @@ export default {
   preferences: {
     title: "Preferencias",
     era: {
-      title: "🎭 Seleccionar Época",
+      title: "🎭 Época",
       all: { emoji: "📺", label: "Todas las épocas" },
       classic: { emoji: "👑", label: "Época Clásica (T1-T8)" },
       golden: { emoji: "⭐", label: "Época Dorada (T9-T15)" },
       modern: { emoji: "🆕", label: "Época Moderna (T16+)" },
     },
     age: {
-      title: "🔞 Filtro por Edad",
+      title: "🔞 Clasificacion",
       all: { emoji: "👨‍👩‍👧‍👦", label: "Todas las edades" },
       sam12: { emoji: "🧒", label: "SAM 12+" },
       sam14: { emoji: "👦", label: "SAM 14+" },
+    },
+    descriptionLength: {
+      title: "Descripcion del episodio",
+      brief: { emoji: "📏", label: "Breve" },
+      medium: { emoji: "📝", label: "Medio" },
+      full: { emoji: "📚", label: "Completo" },
     },
     specials: {
       title: "🎃 Episodios Especiales",
