@@ -1,6 +1,8 @@
 const { SEASON_CANT } = require("./Constants");
 const fs = require("fs");
 
+const ES_DEFAULT_NAME_OF_TREEHOUSE_OF_HORROR = "las casitas del terror";
+
 /**
  * This function returns the duration of an episode in minutes.
  * @param {number} durationMs - The duration of the episode in milliseconds.
@@ -40,14 +42,20 @@ exports.episodesDataFromSeason = (seasonEpisodes) => {
 exports.getFormattedEpisode = (episode) => {
   const episodeId = episode.id || "";
   const episodeData = episode?.visuals || {};
+  const title = episodeData.episodeTitle || "";
+  const isTreehouseOfHorror = title
+    .toLowerCase()
+    .includes(ES_DEFAULT_NAME_OF_TREEHOUSE_OF_HORROR);
+
   return {
     [episodeId]: {
       episodeId: episodeId,
       episodeNumber: parseInt(episodeData.episodeNumber),
-      title: episodeData.episodeTitle,
+      title: title,
       description: episodeData.description,
       duration: getDurationOnMinutes(episodeData.durationMs),
       rating: episodeData.metastringParts.ratingInfo.rating.text,
+      isTreehouseOfHorror: isTreehouseOfHorror,
     },
   };
 };
