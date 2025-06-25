@@ -71,9 +71,9 @@ export default function useStyles() {
       gap: 12,
     },
     cancelButton: {
-      backgroundColor: "#999",
+      backgroundColor: "#666",
       padding: 16,
-      borderRadius: 12,
+      borderRadius: 16,
       alignItems: "center",
     },
     cancelButtonText: {

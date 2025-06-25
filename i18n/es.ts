@@ -41,12 +41,11 @@ export default {
     },
     buttons: {
       save: "💾 Guardar Preferencias",
-      cancel: "❌ Cancelar",
     },
   },
   episode: {
     title: "Episodio Aleatorio",
-    loading: "Buscando episodio...",
+    loading: "Buscando episodios...",
     season: "T{{season}}",
     episode: "E{{episode}}",
     buttons: {

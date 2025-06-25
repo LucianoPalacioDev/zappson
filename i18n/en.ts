@@ -41,12 +41,11 @@ export default {
     },
     buttons: {
       save: "💾 Save Preferences",
-      cancel: "❌ Cancel",
     },
   },
   episode: {
     title: "Random Episode",
-    loading: "Looking for an episode...",
+    loading: "Looking for an episodes...",
     season: "S{{season}}",
     episode: "E{{episode}}",
     buttons: {

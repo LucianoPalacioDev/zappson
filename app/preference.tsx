@@ -161,7 +161,7 @@ export default function PreferencesScreen() {
 
           <TouchableOpacity onPress={handleBack} style={styles.cancelButton}>
             <Text style={styles.cancelButtonText}>
-              {t("preferences.buttons.cancel")}
+              {t("common.backToHome")}
             </Text>
           </TouchableOpacity>
         </View>
