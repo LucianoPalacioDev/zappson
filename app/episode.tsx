@@ -152,9 +152,7 @@ export default function EpisodeScreen() {
               style={styles.buttonSecondary}
               onPress={handleBack}
             >
-              <Text style={styles.buttonText}>
-                {t("episode.buttons.backHome")}
-              </Text>
+              <Text style={styles.buttonText}>{t("common.backToHome")}</Text>
             </TouchableOpacity>
           </View>
         </View>

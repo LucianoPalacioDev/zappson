@@ -51,7 +51,6 @@ export default {
     episode: "E{{episode}}",
     buttons: {
       newEpisode: "🎲 Otro Episodio",
-      backHome: "🏠 Volver al Inicio",
     },
     errors: {
       fetchError:

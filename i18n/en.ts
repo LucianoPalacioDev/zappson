@@ -51,7 +51,6 @@ export default {
     episode: "E{{episode}}",
     buttons: {
       newEpisode: "🎲 Another Episode",
-      backHome: "🏠 Back to Home",
     },
     errors: {
       fetchError:
@@ -70,7 +69,6 @@ export default {
   common: {
     loading: "⏳ Loading...",
     retry: "🔄 Try Again",
-    // TODO: use this as common
     backToHome: "🏠 Back to Home",
   },
 };
