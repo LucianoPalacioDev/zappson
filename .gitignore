@@ -48,3 +48,7 @@ scripts/get-episodes-pictures/utils/Constants.js
 # Firebase config
 config/firebase.config.json
 
+# Images data
+assets/images/episodes
+
+
