@@ -1,5 +1,6 @@
 import ErrorSeasonFetch from "@/components/Episode/Error/index";
 import LoadingEpisode from "@/components/Episode/Loading";
+import { EPISODES_IMAGES } from "@/constants/episodes";
 import { DEFAULT_PREFERENCES } from "@/constants/filters";
 import { ROUTES } from "@/constants/routes";
 import { PREFERENCES_KEY } from "@/constants/store-keys";
@@ -11,9 +12,10 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getSeasons } from "@/services/firestoreService";
 import useStyles from "@/styles/episode.styles";
+import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import * as SecureStore from "expo-secure-store";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 const getEpisodesFromSeasons = (seasons: SeasonFirestore[]) => {
@@ -98,6 +100,13 @@ export default function EpisodeScreen() {
     }
   };
 
+  const episodeImage = useMemo(() => {
+    if (!episode) return null;
+    const key =
+      `s${episode.seasonNumber}/ep${episode.episodeNumber}`.toLowerCase();
+    return EPISODES_IMAGES[key];
+  }, [episode]);
+
   if (loading) {
     return <LoadingEpisode />;
   }
@@ -121,7 +130,16 @@ export default function EpisodeScreen() {
     >
       <View style={styles.content}>
         <View style={styles.imageContainer}>
-          <Text style={styles.imageEmoji}>📺</Text>
+          {episodeImage ? (
+            <Image
+              source={episodeImage}
+              style={styles.image}
+              contentFit="cover"
+              transition={500}
+            />
+          ) : (
+            <Text style={styles.imageEmoji}>📺</Text>
+          )}
         </View>
 
         <View style={styles.infoContainer}>

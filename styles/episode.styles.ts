@@ -21,11 +21,16 @@ export default function useStyles() {
     },
     imageContainer: {
       backgroundColor: colors.simpsonBlue,
-      height: 180,
+      height: 210,
       justifyContent: "center",
       alignItems: "center",
       borderTopEndRadius: 12,
       borderTopStartRadius: 12,
+      overflow: "hidden",
+    },
+    image: {
+      width: "100%",
+      height: "100%",
     },
     imageEmoji: {
       fontSize: 64,
