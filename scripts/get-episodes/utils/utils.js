@@ -56,6 +56,7 @@ exports.getFormattedEpisode = (episode) => {
       duration: getDurationOnMinutes(episodeData.durationMs),
       rating: episodeData.metastringParts.ratingInfo.rating.text,
       isTreehouseOfHorror: isTreehouseOfHorror,
+      imageId: episodeData.artwork?.standard?.thumbnail?.["1.78"]?.imageId || '',
     },
   };
 };

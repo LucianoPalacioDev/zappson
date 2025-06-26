@@ -40,8 +40,10 @@ app-example
 
 # Scripts data
 scripts/get-episodes/data
-scripts/save-episodes/data
 scripts/save-episodes/utils/serviceAccountKey.json
+scripts/get-ratings.js
+scripts/episodes.json
+scripts/get-episodes-pictures/utils/Constants.js
 
 # Firebase config
 config/firebase.config.json
