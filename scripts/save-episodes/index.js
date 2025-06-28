@@ -69,8 +69,6 @@ const saveSeasonsToFirestore = async (episodesData, collectionName) => {
   } catch (error) {
     console.error("❌ Error in saveSeasonsToFirestore:", error);
     throw error;
-  } finally {
-    admin.app().delete();
   }
 };
 

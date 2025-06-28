@@ -79,7 +79,7 @@ const saveEpisodesOnLocalFile = async (episodes, language) => {
     console.log(`🚀 Fetching episodes with language: ${language}`);
 
     const episodes = await getEpisodes(token);
-    console.log("🚀 Episodes got successfully: ", JSON.stringify(episodes));
+    console.log("🚀 Episodes got successfully ");
 
     await saveEpisodesOnLocalFile(episodes, language);
     console.log("🚀 Episodes saved successfully");

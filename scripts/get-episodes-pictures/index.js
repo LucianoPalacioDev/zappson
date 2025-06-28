@@ -1,10 +1,12 @@
+/* global __dirname */
 const axios = require("axios");
 const { existsSync, promises: fs, mkdirSync } = require("fs");
-const { join } = require("path");
+const path = require("path");
+const projectRoot = path.join(__dirname, "..", "..");
 
-const episodes = require("../episodes.json");
+const episodes = require("../data-english/episodes.json");
 const { BASE_IMAGE_URL, IMAGE_PARAMS } = require("./utils/Constants");
-const OUTPUT_DIR = join(process.cwd(), "assets", "images", "episodes");
+const OUTPUT_DIR = path.join(projectRoot, "assets", "images", "episodes");
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000;
 
@@ -58,7 +60,7 @@ const downloadAllImages = async () => {
     ensureDirectoryExists(OUTPUT_DIR);
 
     for (const [seasonNumber, seasonEpisodes] of Object.entries(episodes)) {
-      const seasonDir = join(OUTPUT_DIR, seasonNumber);
+      const seasonDir = path.join(OUTPUT_DIR, seasonNumber);
       ensureDirectoryExists(seasonDir);
 
       console.log(
@@ -76,7 +78,7 @@ const downloadAllImages = async () => {
 
         const imageUrl = `${BASE_IMAGE_URL}/${imageId}/${IMAGE_PARAMS}`;
         const episodePath = `ep${parseInt(episodeNumber)}`;
-        const outputPath = join(seasonDir, `${episodePath}.webp`);
+        const outputPath = path.join(seasonDir, `${episodePath}.webp`);
 
         if (existsSync(outputPath)) {
           console.log(`⏩ Skipping existing: ${outputPath}`);
