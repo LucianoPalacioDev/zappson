@@ -39,13 +39,12 @@ yarn-error.*
 app-example
 
 # Scripts data
-scripts/get-episodes/data-spanish
-scripts/get-episodes/data-english
 scripts/get-episodes/utils/seasons-ids.json
 scripts/get-episodes/utils/hidden-utils.js
 scripts/save-episodes/utils/serviceAccountKey.json
 scripts/get-ratings.js
-scripts/episodes.json
+scripts/data-english/episodes.json
+scripts/data-spanish/episodes.json
 scripts/get-episodes-pictures/utils/Constants.js
 
 # Firebase config

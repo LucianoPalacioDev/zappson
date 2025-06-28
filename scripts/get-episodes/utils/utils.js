@@ -1,4 +1,9 @@
-const { SEASON_CANT } = require("./Constants");
+const {
+  SEASON_CANT,
+  AVAILABLE_LANGUAGES,
+  ENGLISH_LANGUAGE,
+  SPANISH_LANGUAGE,
+} = require("./Constants");
 const fs = require("fs");
 
 const ES_DEFAULT_NAME_OF_TREEHOUSE_OF_HORROR = "las casitas del terror";
@@ -56,7 +61,8 @@ exports.getFormattedEpisode = (episode) => {
       duration: getDurationOnMinutes(episodeData.durationMs),
       rating: episodeData.metastringParts.ratingInfo.rating.text,
       isTreehouseOfHorror: isTreehouseOfHorror,
-      imageId: episodeData.artwork?.standard?.thumbnail?.["1.78"]?.imageId || '',
+      imageId:
+        episodeData.artwork?.standard?.thumbnail?.["1.78"]?.imageId || "",
     },
   };
 };
@@ -69,4 +75,33 @@ exports.ensureDirectoryExists = (dirPath) => {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
   }
+};
+
+exports.getCliParams = () => {
+  const args = process.argv.slice(2);
+  const params = {};
+
+  for (let i = 0; i < args.length; i += 2) {
+    const key = args[i].replace(/^--?/, "");
+    params[key] = args[i + 1];
+  }
+
+  const { language, token } = params;
+
+  if (!AVAILABLE_LANGUAGES.includes(language.toLowerCase())) {
+    throw new Error(
+      `Invalid language. Usage: node index.js --language [${ENGLISH_LANGUAGE}|${SPANISH_LANGUAGE}] --token YOUR_TOKEN`
+    );
+  }
+
+  if (!token) {
+    throw new Error(
+      `Token parameter is required. Usage: node index.js --language [${ENGLISH_LANGUAGE}|${SPANISH_LANGUAGE}] --token YOUR_TOKEN`
+    );
+  }
+
+  return {
+    language: language.toLowerCase(),
+    token,
+  };
 };

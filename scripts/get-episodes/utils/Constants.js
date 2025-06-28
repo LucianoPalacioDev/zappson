@@ -1,4 +1,7 @@
+/* global __dirname */
 const path = require("path");
+// project root
+const projectRoot = path.join(__dirname, "..", "..", "..");
 
 /**
  * The number of seasons.
@@ -7,27 +10,52 @@ const path = require("path");
 exports.SEASON_CANT = 36;
 
 /**
- * The output directory.
+ * The english output directory.
  * @type {string}
  */
-exports.OUTPUT_DIR_ENGLISH = path.join(
-  process.cwd(),
-  "scripts",
-  "save-episodes",
-  "data-english"
-);
+exports.OUTPUT_DIR_ENGLISH = path.join(projectRoot, "scripts", "data-english");
 
 /**
- * The output file.
+ * The spanish output directory.
  * @type {string}
  */
-exports.OUTPUT_FILE = "episodes.json";
+
+exports.OUTPUT_DIR_SPANISH = path.join(projectRoot, "scripts", "data-spanish");
 
 /**
- * The output path.
+ * The english output file.
  * @type {string}
  */
-exports.OUTPUT_PATH = path.join(
+exports.OUTPUT_FILE_ENGLISH = "episodes.json";
+
+/**
+ * The spanish output file.
+ * @type {string}
+ */
+exports.OUTPUT_FILE_SPANISH = "episodes.json";
+
+/**
+ * The english output path.
+ * @type {string}
+ */
+exports.OUTPUT_PATH_ENGLISH = path.join(
   exports.OUTPUT_DIR_ENGLISH,
-  exports.OUTPUT_FILE
+  exports.OUTPUT_FILE_ENGLISH
 );
+
+/**
+ * The spanish output path.
+ * @type {string}
+ */
+exports.OUTPUT_PATH_SPANISH = path.join(
+  exports.OUTPUT_DIR_SPANISH,
+  exports.OUTPUT_FILE_SPANISH
+);
+
+exports.ENGLISH_LANGUAGE = "english";
+exports.SPANISH_LANGUAGE = "spanish";
+
+exports.AVAILABLE_LANGUAGES = [
+  exports.ENGLISH_LANGUAGE,
+  exports.SPANISH_LANGUAGE,
+];

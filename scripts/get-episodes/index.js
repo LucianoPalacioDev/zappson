@@ -9,25 +9,34 @@ const {
   episodesDataFromSeason,
   getFormattedEpisode,
   ensureDirectoryExists,
+  getCliParams,
 } = require("./utils/utils");
-const { OUTPUT_DIR_ENGLISH, OUTPUT_PATH } = require("./utils/Constants");
+const {
+  OUTPUT_DIR_ENGLISH,
+  OUTPUT_PATH_ENGLISH,
+  ENGLISH_LANGUAGE,
+  OUTPUT_DIR_SPANISH,
+  OUTPUT_PATH_SPANISH,
+} = require("./utils/Constants");
 const seasonsIds = require("./utils/seasons-ids.json");
 const { fetchSeasonData } = require("./utils/hidden-utils");
 
-const getEpisodes = async () => {
+const getEpisodes = async (token) => {
   console.log("🚀 Getting episodes...");
   const formattedEpisodes = getInitialFormattedEpisodes();
 
   for (const [index, seasonId] of seasonsIds.entries()) {
-    const seasonKey = `s${index + 1}`;
+    const currentSeasonNumber = index + 1;
+    const seasonKey = `s${currentSeasonNumber}`;
     if (!seasonId) {
-      console.warn(`No ID found for season ${seasonId}`);
+      console.warn(`No ID found for season ${currentSeasonNumber}`);
       continue;
     }
 
     try {
-      console.log(`Fetching data for season ${seasonId}...`);
-      const seasonData = await fetchSeasonData(seasonId);
+      console.log(`Fetching data for season ${currentSeasonNumber}...`);
+      //NOTE: The token determines the language in which the chapters will be returned.
+      const seasonData = await fetchSeasonData(seasonId, token);
 
       const seasonEpisodes = episodesDataFromSeason(seasonData);
 
@@ -39,7 +48,7 @@ const getEpisodes = async () => {
       }
     } catch (error) {
       console.error(
-        `Error trying to get the episodes from season ${seasonId}:`,
+        `Error trying to get the episodes from season ${currentSeasonNumber}:`,
         error.message
       );
     }
@@ -47,13 +56,18 @@ const getEpisodes = async () => {
   return formattedEpisodes;
 };
 
-const saveEpisodesOnLocalFile = async (episodes) => {
+const saveEpisodesOnLocalFile = async (episodes, language) => {
   try {
-    ensureDirectoryExists(OUTPUT_DIR_ENGLISH);
+    const currentOutputDir =
+      language === ENGLISH_LANGUAGE ? OUTPUT_DIR_ENGLISH : OUTPUT_DIR_SPANISH;
+    const currentOutputPath =
+      language === ENGLISH_LANGUAGE ? OUTPUT_PATH_ENGLISH : OUTPUT_PATH_SPANISH;
+
+    ensureDirectoryExists(currentOutputDir);
 
     const jsonContent = JSON.stringify(episodes, null, 2);
 
-    fs.writeFileSync(OUTPUT_PATH, jsonContent, "utf8");
+    fs.writeFileSync(currentOutputPath, jsonContent, "utf8");
   } catch (error) {
     console.error("Error trying to save episodes:", error);
   }
@@ -61,11 +75,16 @@ const saveEpisodesOnLocalFile = async (episodes) => {
 
 (async () => {
   try {
-    const episodes = await getEpisodes();
-    console.log("🚀 Episodes got successfully");
-    await saveEpisodesOnLocalFile(episodes);
+    const { language, token } = getCliParams();
+    console.log(`🚀 Fetching episodes with language: ${language}`);
+
+    const episodes = await getEpisodes(token);
+    console.log("🚀 Episodes got successfully: ", JSON.stringify(episodes));
+
+    await saveEpisodesOnLocalFile(episodes, language);
     console.log("🚀 Episodes saved successfully");
   } catch (error) {
-    console.error("Error getting the episodes:", error);
+    console.error("Error:", error.message);
+    process.exit(1); // Exit with error code 1 on error
   }
 })();
