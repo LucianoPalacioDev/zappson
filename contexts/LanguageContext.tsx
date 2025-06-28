@@ -5,38 +5,10 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { ENGLISH_LANGUAGE, SPANISH_LANGUAGE } from "../constants/languages";
+import { SPANISH_LANGUAGE } from "../constants/languages";
+import { Language, Translations } from "../constants/types";
 import enTranslations from "../i18n/en";
 import esTranslations from "../i18n/es";
-
-type Language = typeof ENGLISH_LANGUAGE | typeof SPANISH_LANGUAGE;
-
-type Translations = {
-  welcome: {
-    title: string;
-    subtitle: string;
-    description: string;
-    namePlaceholder: string;
-    continueButton: string;
-    nameQuestion: string;
-  };
-  home: {
-    greeting: string;
-    subtitle: string;
-    randomEpisode: string;
-    preferences: string;
-    settingsIcon: string;
-    tvIcon: string;
-    donutIcon: string;
-    diceIcon: string;
-  };
-  notFound: {
-    title: string;
-    subtitle: string;
-    description: string;
-    goBackButton: string;
-  };
-};
 
 interface LanguageContextType {
   language: Language;

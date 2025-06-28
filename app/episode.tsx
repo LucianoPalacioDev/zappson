@@ -6,6 +6,7 @@ import { ROUTES } from "@/constants/routes";
 import { PREFERENCES_KEY } from "@/constants/store-keys";
 import {
   EpisodeFirestore,
+  Language,
   Preferences,
   SeasonFirestore,
 } from "@/constants/types";
@@ -29,7 +30,7 @@ export default function EpisodeScreen() {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const styles = useStyles();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const fetchEpisode = useCallback(() => {
     if (episodes.length === 0) return;
@@ -54,6 +55,7 @@ export default function EpisodeScreen() {
         const savedPreferences = JSON.parse(savedPreferencesString || "{}");
         const seasonsData = await getSeasons({
           preferences: savedPreferences as Preferences,
+          language: language as Language,
         });
         const episodesData = getEpisodesFromSeasons(seasonsData);
         setEpisodes(episodesData);
@@ -67,7 +69,7 @@ export default function EpisodeScreen() {
     };
 
     fetchSeasons();
-  }, [t]);
+  }, [t, language]);
 
   useEffect(() => {
     fetchEpisode();
@@ -89,6 +91,7 @@ export default function EpisodeScreen() {
     try {
       const seasonsData = await getSeasons({
         preferences: DEFAULT_PREFERENCES,
+        language: language as Language,
       });
       const episodesData = getEpisodesFromSeasons(seasonsData);
       setEpisodes(episodesData);

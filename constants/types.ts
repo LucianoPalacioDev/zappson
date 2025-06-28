@@ -1,3 +1,4 @@
+import { ENGLISH_LANGUAGE, SPANISH_LANGUAGE } from "../constants/languages";
 import {
   DESCRIPTION_LENGTH_BRIEF,
   DESCRIPTION_LENGTH_FULL,
@@ -54,4 +55,33 @@ export type SeasonFirestore = {
   seasonNumber: number;
   episodeCount: number;
   episodes: EpisodeFirestore[];
+};
+
+export type Language = typeof ENGLISH_LANGUAGE | typeof SPANISH_LANGUAGE;
+
+export type Translations = {
+  welcome: {
+    title: string;
+    subtitle: string;
+    description: string;
+    namePlaceholder: string;
+    continueButton: string;
+    nameQuestion: string;
+  };
+  home: {
+    greeting: string;
+    subtitle: string;
+    randomEpisode: string;
+    preferences: string;
+    settingsIcon: string;
+    tvIcon: string;
+    donutIcon: string;
+    diceIcon: string;
+  };
+  notFound: {
+    title: string;
+    subtitle: string;
+    description: string;
+    goBackButton: string;
+  };
 };

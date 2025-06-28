@@ -30,6 +30,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s2/ep13": require("@/assets/images/episodes/s2/ep13.webp"),
   "s2/ep14": require("@/assets/images/episodes/s2/ep14.webp"),
   "s2/ep15": require("@/assets/images/episodes/s2/ep15.webp"),
+  "s2/ep16": require("@/assets/images/episodes/s2/ep16.webp"),
+  "s2/ep17": require("@/assets/images/episodes/s2/ep17.webp"),
+  "s2/ep18": require("@/assets/images/episodes/s2/ep18.webp"),
+  "s2/ep19": require("@/assets/images/episodes/s2/ep19.webp"),
+  "s2/ep20": require("@/assets/images/episodes/s2/ep20.webp"),
+  "s2/ep21": require("@/assets/images/episodes/s2/ep21.webp"),
+  "s2/ep22": require("@/assets/images/episodes/s2/ep22.webp"),
 
   // Season 3
   "s3/ep1": require("@/assets/images/episodes/s3/ep1.webp"),
@@ -47,6 +54,14 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s3/ep13": require("@/assets/images/episodes/s3/ep13.webp"),
   "s3/ep14": require("@/assets/images/episodes/s3/ep14.webp"),
   "s3/ep15": require("@/assets/images/episodes/s3/ep15.webp"),
+  "s3/ep16": require("@/assets/images/episodes/s3/ep16.webp"),
+  "s3/ep17": require("@/assets/images/episodes/s3/ep17.webp"),
+  "s3/ep18": require("@/assets/images/episodes/s3/ep18.webp"),
+  "s3/ep19": require("@/assets/images/episodes/s3/ep19.webp"),
+  "s3/ep20": require("@/assets/images/episodes/s3/ep20.webp"),
+  "s3/ep21": require("@/assets/images/episodes/s3/ep21.webp"),
+  "s3/ep22": require("@/assets/images/episodes/s3/ep22.webp"),
+  "s3/ep23": require("@/assets/images/episodes/s3/ep23.webp"),
 
   // Season 4
   "s4/ep1": require("@/assets/images/episodes/s4/ep1.webp"),
@@ -64,6 +79,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s4/ep13": require("@/assets/images/episodes/s4/ep13.webp"),
   "s4/ep14": require("@/assets/images/episodes/s4/ep14.webp"),
   "s4/ep15": require("@/assets/images/episodes/s4/ep15.webp"),
+  "s4/ep16": require("@/assets/images/episodes/s4/ep16.webp"),
+  "s4/ep17": require("@/assets/images/episodes/s4/ep17.webp"),
+  "s4/ep18": require("@/assets/images/episodes/s4/ep18.webp"),
+  "s4/ep19": require("@/assets/images/episodes/s4/ep19.webp"),
+  "s4/ep20": require("@/assets/images/episodes/s4/ep20.webp"),
+  "s4/ep21": require("@/assets/images/episodes/s4/ep21.webp"),
+  "s4/ep22": require("@/assets/images/episodes/s4/ep22.webp"),
 
   // Season 5
   "s5/ep1": require("@/assets/images/episodes/s5/ep1.webp"),
@@ -81,6 +103,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s5/ep13": require("@/assets/images/episodes/s5/ep13.webp"),
   "s5/ep14": require("@/assets/images/episodes/s5/ep14.webp"),
   "s5/ep15": require("@/assets/images/episodes/s5/ep15.webp"),
+  "s5/ep16": require("@/assets/images/episodes/s5/ep16.webp"),
+  "s5/ep17": require("@/assets/images/episodes/s5/ep17.webp"),
+  "s5/ep18": require("@/assets/images/episodes/s5/ep18.webp"),
+  "s5/ep19": require("@/assets/images/episodes/s5/ep19.webp"),
+  "s5/ep20": require("@/assets/images/episodes/s5/ep20.webp"),
+  "s5/ep21": require("@/assets/images/episodes/s5/ep21.webp"),
+  "s5/ep22": require("@/assets/images/episodes/s5/ep22.webp"),
 
   // Season 6
   "s6/ep1": require("@/assets/images/episodes/s6/ep1.webp"),
@@ -98,6 +127,16 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s6/ep13": require("@/assets/images/episodes/s6/ep13.webp"),
   "s6/ep14": require("@/assets/images/episodes/s6/ep14.webp"),
   "s6/ep15": require("@/assets/images/episodes/s6/ep15.webp"),
+  "s6/ep16": require("@/assets/images/episodes/s6/ep16.webp"),
+  "s6/ep17": require("@/assets/images/episodes/s6/ep17.webp"),
+  "s6/ep18": require("@/assets/images/episodes/s6/ep18.webp"),
+  "s6/ep19": require("@/assets/images/episodes/s6/ep19.webp"),
+  "s6/ep20": require("@/assets/images/episodes/s6/ep20.webp"),
+  "s6/ep21": require("@/assets/images/episodes/s6/ep21.webp"),
+  "s6/ep22": require("@/assets/images/episodes/s6/ep22.webp"),
+  "s6/ep23": require("@/assets/images/episodes/s6/ep23.webp"),
+  "s6/ep24": require("@/assets/images/episodes/s6/ep24.webp"),
+  "s6/ep25": require("@/assets/images/episodes/s6/ep25.webp"),
 
   // Season 7
   "s7/ep1": require("@/assets/images/episodes/s7/ep1.webp"),
@@ -115,6 +154,16 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s7/ep13": require("@/assets/images/episodes/s7/ep13.webp"),
   "s7/ep14": require("@/assets/images/episodes/s7/ep14.webp"),
   "s7/ep15": require("@/assets/images/episodes/s7/ep15.webp"),
+  "s7/ep16": require("@/assets/images/episodes/s7/ep16.webp"),
+  "s7/ep17": require("@/assets/images/episodes/s7/ep17.webp"),
+  "s7/ep18": require("@/assets/images/episodes/s7/ep18.webp"),
+  "s7/ep19": require("@/assets/images/episodes/s7/ep19.webp"),
+  "s7/ep20": require("@/assets/images/episodes/s7/ep20.webp"),
+  "s7/ep21": require("@/assets/images/episodes/s7/ep21.webp"),
+  "s7/ep22": require("@/assets/images/episodes/s7/ep22.webp"),
+  "s7/ep23": require("@/assets/images/episodes/s7/ep23.webp"),
+  "s7/ep24": require("@/assets/images/episodes/s7/ep24.webp"),
+  "s7/ep25": require("@/assets/images/episodes/s7/ep25.webp"),
 
   // Season 8
   "s8/ep1": require("@/assets/images/episodes/s8/ep1.webp"),
@@ -132,6 +181,16 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s8/ep13": require("@/assets/images/episodes/s8/ep13.webp"),
   "s8/ep14": require("@/assets/images/episodes/s8/ep14.webp"),
   "s8/ep15": require("@/assets/images/episodes/s8/ep15.webp"),
+  "s8/ep16": require("@/assets/images/episodes/s8/ep16.webp"),
+  "s8/ep17": require("@/assets/images/episodes/s8/ep17.webp"),
+  "s8/ep18": require("@/assets/images/episodes/s8/ep18.webp"),
+  "s8/ep19": require("@/assets/images/episodes/s8/ep19.webp"),
+  "s8/ep20": require("@/assets/images/episodes/s8/ep20.webp"),
+  "s8/ep21": require("@/assets/images/episodes/s8/ep21.webp"),
+  "s8/ep22": require("@/assets/images/episodes/s8/ep22.webp"),
+  "s8/ep23": require("@/assets/images/episodes/s8/ep23.webp"),
+  "s8/ep24": require("@/assets/images/episodes/s8/ep24.webp"),
+  "s8/ep25": require("@/assets/images/episodes/s8/ep25.webp"),
 
   // Season 9
   "s9/ep1": require("@/assets/images/episodes/s9/ep1.webp"),
@@ -149,6 +208,16 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s9/ep13": require("@/assets/images/episodes/s9/ep13.webp"),
   "s9/ep14": require("@/assets/images/episodes/s9/ep14.webp"),
   "s9/ep15": require("@/assets/images/episodes/s9/ep15.webp"),
+  "s9/ep16": require("@/assets/images/episodes/s9/ep16.webp"),
+  "s9/ep17": require("@/assets/images/episodes/s9/ep17.webp"),
+  "s9/ep18": require("@/assets/images/episodes/s9/ep18.webp"),
+  "s9/ep19": require("@/assets/images/episodes/s9/ep19.webp"),
+  "s9/ep20": require("@/assets/images/episodes/s9/ep20.webp"),
+  "s9/ep21": require("@/assets/images/episodes/s9/ep21.webp"),
+  "s9/ep22": require("@/assets/images/episodes/s9/ep22.webp"),
+  "s9/ep23": require("@/assets/images/episodes/s9/ep23.webp"),
+  "s9/ep24": require("@/assets/images/episodes/s9/ep24.webp"),
+  "s9/ep25": require("@/assets/images/episodes/s9/ep25.webp"),
 
   // Season 10
   "s10/ep1": require("@/assets/images/episodes/s10/ep1.webp"),
@@ -166,6 +235,14 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s10/ep13": require("@/assets/images/episodes/s10/ep13.webp"),
   "s10/ep14": require("@/assets/images/episodes/s10/ep14.webp"),
   "s10/ep15": require("@/assets/images/episodes/s10/ep15.webp"),
+  "s10/ep16": require("@/assets/images/episodes/s10/ep16.webp"),
+  "s10/ep17": require("@/assets/images/episodes/s10/ep17.webp"),
+  "s10/ep18": require("@/assets/images/episodes/s10/ep18.webp"),
+  "s10/ep19": require("@/assets/images/episodes/s10/ep19.webp"),
+  "s10/ep20": require("@/assets/images/episodes/s10/ep20.webp"),
+  "s10/ep21": require("@/assets/images/episodes/s10/ep21.webp"),
+  "s10/ep22": require("@/assets/images/episodes/s10/ep22.webp"),
+  "s10/ep23": require("@/assets/images/episodes/s10/ep23.webp"),
 
   // Season 11
   "s11/ep1": require("@/assets/images/episodes/s11/ep1.webp"),
@@ -183,6 +260,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s11/ep13": require("@/assets/images/episodes/s11/ep13.webp"),
   "s11/ep14": require("@/assets/images/episodes/s11/ep14.webp"),
   "s11/ep15": require("@/assets/images/episodes/s11/ep15.webp"),
+  "s11/ep16": require("@/assets/images/episodes/s11/ep16.webp"),
+  "s11/ep17": require("@/assets/images/episodes/s11/ep17.webp"),
+  "s11/ep18": require("@/assets/images/episodes/s11/ep18.webp"),
+  "s11/ep19": require("@/assets/images/episodes/s11/ep19.webp"),
+  "s11/ep20": require("@/assets/images/episodes/s11/ep20.webp"),
+  "s11/ep21": require("@/assets/images/episodes/s11/ep21.webp"),
+  "s11/ep22": require("@/assets/images/episodes/s11/ep22.webp"),
 
   // Season 12
   "s12/ep1": require("@/assets/images/episodes/s12/ep1.webp"),
@@ -200,6 +284,12 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s12/ep13": require("@/assets/images/episodes/s12/ep13.webp"),
   "s12/ep14": require("@/assets/images/episodes/s12/ep14.webp"),
   "s12/ep15": require("@/assets/images/episodes/s12/ep15.webp"),
+  "s12/ep16": require("@/assets/images/episodes/s12/ep16.webp"),
+  "s12/ep17": require("@/assets/images/episodes/s12/ep17.webp"),
+  "s12/ep18": require("@/assets/images/episodes/s12/ep18.webp"),
+  "s12/ep19": require("@/assets/images/episodes/s12/ep19.webp"),
+  "s12/ep20": require("@/assets/images/episodes/s12/ep20.webp"),
+  "s12/ep21": require("@/assets/images/episodes/s12/ep21.webp"),
 
   // Season 13
   "s13/ep1": require("@/assets/images/episodes/s13/ep1.webp"),
@@ -217,6 +307,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s13/ep13": require("@/assets/images/episodes/s13/ep13.webp"),
   "s13/ep14": require("@/assets/images/episodes/s13/ep14.webp"),
   "s13/ep15": require("@/assets/images/episodes/s13/ep15.webp"),
+  "s13/ep16": require("@/assets/images/episodes/s13/ep16.webp"),
+  "s13/ep17": require("@/assets/images/episodes/s13/ep17.webp"),
+  "s13/ep18": require("@/assets/images/episodes/s13/ep18.webp"),
+  "s13/ep19": require("@/assets/images/episodes/s13/ep19.webp"),
+  "s13/ep20": require("@/assets/images/episodes/s13/ep20.webp"),
+  "s13/ep21": require("@/assets/images/episodes/s13/ep21.webp"),
+  "s13/ep22": require("@/assets/images/episodes/s13/ep22.webp"),
 
   // Season 14
   "s14/ep1": require("@/assets/images/episodes/s14/ep1.webp"),
@@ -234,6 +331,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s14/ep13": require("@/assets/images/episodes/s14/ep13.webp"),
   "s14/ep14": require("@/assets/images/episodes/s14/ep14.webp"),
   "s14/ep15": require("@/assets/images/episodes/s14/ep15.webp"),
+  "s14/ep16": require("@/assets/images/episodes/s14/ep16.webp"),
+  "s14/ep17": require("@/assets/images/episodes/s14/ep17.webp"),
+  "s14/ep18": require("@/assets/images/episodes/s14/ep18.webp"),
+  "s14/ep19": require("@/assets/images/episodes/s14/ep19.webp"),
+  "s14/ep20": require("@/assets/images/episodes/s14/ep20.webp"),
+  "s14/ep21": require("@/assets/images/episodes/s14/ep21.webp"),
+  "s14/ep22": require("@/assets/images/episodes/s14/ep22.webp"),
 
   // Season 15
   "s15/ep1": require("@/assets/images/episodes/s15/ep1.webp"),
@@ -251,6 +355,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s15/ep13": require("@/assets/images/episodes/s15/ep13.webp"),
   "s15/ep14": require("@/assets/images/episodes/s15/ep14.webp"),
   "s15/ep15": require("@/assets/images/episodes/s15/ep15.webp"),
+  "s15/ep16": require("@/assets/images/episodes/s15/ep16.webp"),
+  "s15/ep17": require("@/assets/images/episodes/s15/ep17.webp"),
+  "s15/ep18": require("@/assets/images/episodes/s15/ep18.webp"),
+  "s15/ep19": require("@/assets/images/episodes/s15/ep19.webp"),
+  "s15/ep20": require("@/assets/images/episodes/s15/ep20.webp"),
+  "s15/ep21": require("@/assets/images/episodes/s15/ep21.webp"),
+  "s15/ep22": require("@/assets/images/episodes/s15/ep22.webp"),
 
   // Season 16
   "s16/ep1": require("@/assets/images/episodes/s16/ep1.webp"),
@@ -268,6 +379,12 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s16/ep13": require("@/assets/images/episodes/s16/ep13.webp"),
   "s16/ep14": require("@/assets/images/episodes/s16/ep14.webp"),
   "s16/ep15": require("@/assets/images/episodes/s16/ep15.webp"),
+  "s16/ep16": require("@/assets/images/episodes/s16/ep16.webp"),
+  "s16/ep17": require("@/assets/images/episodes/s16/ep17.webp"),
+  "s16/ep18": require("@/assets/images/episodes/s16/ep18.webp"),
+  "s16/ep19": require("@/assets/images/episodes/s16/ep19.webp"),
+  "s16/ep20": require("@/assets/images/episodes/s16/ep20.webp"),
+  "s16/ep21": require("@/assets/images/episodes/s16/ep21.webp"),
 
   // Season 17
   "s17/ep1": require("@/assets/images/episodes/s17/ep1.webp"),
@@ -285,6 +402,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s17/ep13": require("@/assets/images/episodes/s17/ep13.webp"),
   "s17/ep14": require("@/assets/images/episodes/s17/ep14.webp"),
   "s17/ep15": require("@/assets/images/episodes/s17/ep15.webp"),
+  "s17/ep16": require("@/assets/images/episodes/s17/ep16.webp"),
+  "s17/ep17": require("@/assets/images/episodes/s17/ep17.webp"),
+  "s17/ep18": require("@/assets/images/episodes/s17/ep18.webp"),
+  "s17/ep19": require("@/assets/images/episodes/s17/ep19.webp"),
+  "s17/ep20": require("@/assets/images/episodes/s17/ep20.webp"),
+  "s17/ep21": require("@/assets/images/episodes/s17/ep21.webp"),
+  "s17/ep22": require("@/assets/images/episodes/s17/ep22.webp"),
 
   // Season 18
   "s18/ep1": require("@/assets/images/episodes/s18/ep1.webp"),
@@ -302,6 +426,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s18/ep13": require("@/assets/images/episodes/s18/ep13.webp"),
   "s18/ep14": require("@/assets/images/episodes/s18/ep14.webp"),
   "s18/ep15": require("@/assets/images/episodes/s18/ep15.webp"),
+  "s18/ep16": require("@/assets/images/episodes/s18/ep16.webp"),
+  "s18/ep17": require("@/assets/images/episodes/s18/ep17.webp"),
+  "s18/ep18": require("@/assets/images/episodes/s18/ep18.webp"),
+  "s18/ep19": require("@/assets/images/episodes/s18/ep19.webp"),
+  "s18/ep20": require("@/assets/images/episodes/s18/ep20.webp"),
+  "s18/ep21": require("@/assets/images/episodes/s18/ep21.webp"),
+  "s18/ep22": require("@/assets/images/episodes/s18/ep22.webp"),
 
   // Season 19
   "s19/ep1": require("@/assets/images/episodes/s19/ep1.webp"),
@@ -319,6 +450,11 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s19/ep13": require("@/assets/images/episodes/s19/ep13.webp"),
   "s19/ep14": require("@/assets/images/episodes/s19/ep14.webp"),
   "s19/ep15": require("@/assets/images/episodes/s19/ep15.webp"),
+  "s19/ep16": require("@/assets/images/episodes/s19/ep16.webp"),
+  "s19/ep17": require("@/assets/images/episodes/s19/ep17.webp"),
+  "s19/ep18": require("@/assets/images/episodes/s19/ep18.webp"),
+  "s19/ep19": require("@/assets/images/episodes/s19/ep19.webp"),
+  "s19/ep20": require("@/assets/images/episodes/s19/ep20.webp"),
 
   // Season 20
   "s20/ep1": require("@/assets/images/episodes/s20/ep1.webp"),
@@ -336,6 +472,12 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s20/ep13": require("@/assets/images/episodes/s20/ep13.webp"),
   "s20/ep14": require("@/assets/images/episodes/s20/ep14.webp"),
   "s20/ep15": require("@/assets/images/episodes/s20/ep15.webp"),
+  "s20/ep16": require("@/assets/images/episodes/s20/ep16.webp"),
+  "s20/ep17": require("@/assets/images/episodes/s20/ep17.webp"),
+  "s20/ep18": require("@/assets/images/episodes/s20/ep18.webp"),
+  "s20/ep19": require("@/assets/images/episodes/s20/ep19.webp"),
+  "s20/ep20": require("@/assets/images/episodes/s20/ep20.webp"),
+  "s20/ep21": require("@/assets/images/episodes/s20/ep21.webp"),
 
   // Season 21
   "s21/ep1": require("@/assets/images/episodes/s21/ep1.webp"),
@@ -353,6 +495,14 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s21/ep13": require("@/assets/images/episodes/s21/ep13.webp"),
   "s21/ep14": require("@/assets/images/episodes/s21/ep14.webp"),
   "s21/ep15": require("@/assets/images/episodes/s21/ep15.webp"),
+  "s21/ep16": require("@/assets/images/episodes/s21/ep16.webp"),
+  "s21/ep17": require("@/assets/images/episodes/s21/ep17.webp"),
+  "s21/ep18": require("@/assets/images/episodes/s21/ep18.webp"),
+  "s21/ep19": require("@/assets/images/episodes/s21/ep19.webp"),
+  "s21/ep20": require("@/assets/images/episodes/s21/ep20.webp"),
+  "s21/ep21": require("@/assets/images/episodes/s21/ep21.webp"),
+  "s21/ep22": require("@/assets/images/episodes/s21/ep22.webp"),
+  "s21/ep23": require("@/assets/images/episodes/s21/ep23.webp"),
 
   // Season 22
   "s22/ep1": require("@/assets/images/episodes/s22/ep1.webp"),
@@ -370,6 +520,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s22/ep13": require("@/assets/images/episodes/s22/ep13.webp"),
   "s22/ep14": require("@/assets/images/episodes/s22/ep14.webp"),
   "s22/ep15": require("@/assets/images/episodes/s22/ep15.webp"),
+  "s22/ep16": require("@/assets/images/episodes/s22/ep16.webp"),
+  "s22/ep17": require("@/assets/images/episodes/s22/ep17.webp"),
+  "s22/ep18": require("@/assets/images/episodes/s22/ep18.webp"),
+  "s22/ep19": require("@/assets/images/episodes/s22/ep19.webp"),
+  "s22/ep20": require("@/assets/images/episodes/s22/ep20.webp"),
+  "s22/ep21": require("@/assets/images/episodes/s22/ep21.webp"),
+  "s22/ep22": require("@/assets/images/episodes/s22/ep22.webp"),
 
   // Season 23
   "s23/ep1": require("@/assets/images/episodes/s23/ep1.webp"),
@@ -387,6 +544,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s23/ep13": require("@/assets/images/episodes/s23/ep13.webp"),
   "s23/ep14": require("@/assets/images/episodes/s23/ep14.webp"),
   "s23/ep15": require("@/assets/images/episodes/s23/ep15.webp"),
+  "s23/ep16": require("@/assets/images/episodes/s23/ep16.webp"),
+  "s23/ep17": require("@/assets/images/episodes/s23/ep17.webp"),
+  "s23/ep18": require("@/assets/images/episodes/s23/ep18.webp"),
+  "s23/ep19": require("@/assets/images/episodes/s23/ep19.webp"),
+  "s23/ep20": require("@/assets/images/episodes/s23/ep20.webp"),
+  "s23/ep21": require("@/assets/images/episodes/s23/ep21.webp"),
+  "s23/ep22": require("@/assets/images/episodes/s23/ep22.webp"),
 
   // Season 24
   "s24/ep1": require("@/assets/images/episodes/s24/ep1.webp"),
@@ -404,6 +568,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s24/ep13": require("@/assets/images/episodes/s24/ep13.webp"),
   "s24/ep14": require("@/assets/images/episodes/s24/ep14.webp"),
   "s24/ep15": require("@/assets/images/episodes/s24/ep15.webp"),
+  "s24/ep16": require("@/assets/images/episodes/s24/ep16.webp"),
+  "s24/ep17": require("@/assets/images/episodes/s24/ep17.webp"),
+  "s24/ep18": require("@/assets/images/episodes/s24/ep18.webp"),
+  "s24/ep19": require("@/assets/images/episodes/s24/ep19.webp"),
+  "s24/ep20": require("@/assets/images/episodes/s24/ep20.webp"),
+  "s24/ep21": require("@/assets/images/episodes/s24/ep21.webp"),
+  "s24/ep22": require("@/assets/images/episodes/s24/ep22.webp"),
 
   // Season 25
   "s25/ep1": require("@/assets/images/episodes/s25/ep1.webp"),
@@ -421,6 +592,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s25/ep13": require("@/assets/images/episodes/s25/ep13.webp"),
   "s25/ep14": require("@/assets/images/episodes/s25/ep14.webp"),
   "s25/ep15": require("@/assets/images/episodes/s25/ep15.webp"),
+  "s25/ep16": require("@/assets/images/episodes/s25/ep16.webp"),
+  "s25/ep17": require("@/assets/images/episodes/s25/ep17.webp"),
+  "s25/ep18": require("@/assets/images/episodes/s25/ep18.webp"),
+  "s25/ep19": require("@/assets/images/episodes/s25/ep19.webp"),
+  "s25/ep20": require("@/assets/images/episodes/s25/ep20.webp"),
+  "s25/ep21": require("@/assets/images/episodes/s25/ep21.webp"),
+  "s25/ep22": require("@/assets/images/episodes/s25/ep22.webp"),
 
   // Season 26
   "s26/ep1": require("@/assets/images/episodes/s26/ep1.webp"),
@@ -438,6 +616,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s26/ep13": require("@/assets/images/episodes/s26/ep13.webp"),
   "s26/ep14": require("@/assets/images/episodes/s26/ep14.webp"),
   "s26/ep15": require("@/assets/images/episodes/s26/ep15.webp"),
+  "s26/ep16": require("@/assets/images/episodes/s26/ep16.webp"),
+  "s26/ep17": require("@/assets/images/episodes/s26/ep17.webp"),
+  "s26/ep18": require("@/assets/images/episodes/s26/ep18.webp"),
+  "s26/ep19": require("@/assets/images/episodes/s26/ep19.webp"),
+  "s26/ep20": require("@/assets/images/episodes/s26/ep20.webp"),
+  "s26/ep21": require("@/assets/images/episodes/s26/ep21.webp"),
+  "s26/ep22": require("@/assets/images/episodes/s26/ep22.webp"),
 
   // Season 27
   "s27/ep1": require("@/assets/images/episodes/s27/ep1.webp"),
@@ -455,6 +640,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s27/ep13": require("@/assets/images/episodes/s27/ep13.webp"),
   "s27/ep14": require("@/assets/images/episodes/s27/ep14.webp"),
   "s27/ep15": require("@/assets/images/episodes/s27/ep15.webp"),
+  "s27/ep16": require("@/assets/images/episodes/s27/ep16.webp"),
+  "s27/ep17": require("@/assets/images/episodes/s27/ep17.webp"),
+  "s27/ep18": require("@/assets/images/episodes/s27/ep18.webp"),
+  "s27/ep19": require("@/assets/images/episodes/s27/ep19.webp"),
+  "s27/ep20": require("@/assets/images/episodes/s27/ep20.webp"),
+  "s27/ep21": require("@/assets/images/episodes/s27/ep21.webp"),
+  "s27/ep22": require("@/assets/images/episodes/s27/ep22.webp"),
 
   // Season 28
   "s28/ep1": require("@/assets/images/episodes/s28/ep1.webp"),
@@ -472,6 +664,12 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s28/ep13": require("@/assets/images/episodes/s28/ep13.webp"),
   "s28/ep14": require("@/assets/images/episodes/s28/ep14.webp"),
   "s28/ep15": require("@/assets/images/episodes/s28/ep15.webp"),
+  "s28/ep16": require("@/assets/images/episodes/s28/ep16.webp"),
+  "s28/ep17": require("@/assets/images/episodes/s28/ep17.webp"),
+  "s28/ep18": require("@/assets/images/episodes/s28/ep18.webp"),
+  "s28/ep19": require("@/assets/images/episodes/s28/ep19.webp"),
+  "s28/ep20": require("@/assets/images/episodes/s28/ep20.webp"),
+  "s28/ep21": require("@/assets/images/episodes/s28/ep21.webp"),
 
   // Season 29
   "s29/ep1": require("@/assets/images/episodes/s29/ep1.webp"),
@@ -489,6 +687,12 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s29/ep13": require("@/assets/images/episodes/s29/ep13.webp"),
   "s29/ep14": require("@/assets/images/episodes/s29/ep14.webp"),
   "s29/ep15": require("@/assets/images/episodes/s29/ep15.webp"),
+  "s29/ep16": require("@/assets/images/episodes/s29/ep16.webp"),
+  "s29/ep17": require("@/assets/images/episodes/s29/ep17.webp"),
+  "s29/ep18": require("@/assets/images/episodes/s29/ep18.webp"),
+  "s29/ep19": require("@/assets/images/episodes/s29/ep19.webp"),
+  "s29/ep20": require("@/assets/images/episodes/s29/ep20.webp"),
+  "s29/ep21": require("@/assets/images/episodes/s29/ep21.webp"),
 
   // Season 30
   "s30/ep1": require("@/assets/images/episodes/s30/ep1.webp"),
@@ -506,6 +710,14 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s30/ep13": require("@/assets/images/episodes/s30/ep13.webp"),
   "s30/ep14": require("@/assets/images/episodes/s30/ep14.webp"),
   "s30/ep15": require("@/assets/images/episodes/s30/ep15.webp"),
+  "s30/ep16": require("@/assets/images/episodes/s30/ep16.webp"),
+  "s30/ep17": require("@/assets/images/episodes/s30/ep17.webp"),
+  "s30/ep18": require("@/assets/images/episodes/s30/ep18.webp"),
+  "s30/ep19": require("@/assets/images/episodes/s30/ep19.webp"),
+  "s30/ep20": require("@/assets/images/episodes/s30/ep20.webp"),
+  "s30/ep21": require("@/assets/images/episodes/s30/ep21.webp"),
+  "s30/ep22": require("@/assets/images/episodes/s30/ep22.webp"),
+  "s30/ep23": require("@/assets/images/episodes/s30/ep23.webp"),
 
   // Season 31
   "s31/ep1": require("@/assets/images/episodes/s31/ep1.webp"),
@@ -523,6 +735,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s31/ep13": require("@/assets/images/episodes/s31/ep13.webp"),
   "s31/ep14": require("@/assets/images/episodes/s31/ep14.webp"),
   "s31/ep15": require("@/assets/images/episodes/s31/ep15.webp"),
+  "s31/ep16": require("@/assets/images/episodes/s31/ep16.webp"),
+  "s31/ep17": require("@/assets/images/episodes/s31/ep17.webp"),
+  "s31/ep18": require("@/assets/images/episodes/s31/ep18.webp"),
+  "s31/ep19": require("@/assets/images/episodes/s31/ep19.webp"),
+  "s31/ep20": require("@/assets/images/episodes/s31/ep20.webp"),
+  "s31/ep21": require("@/assets/images/episodes/s31/ep21.webp"),
+  "s31/ep22": require("@/assets/images/episodes/s31/ep22.webp"),
 
   // Season 32
   "s32/ep1": require("@/assets/images/episodes/s32/ep1.webp"),
@@ -540,6 +759,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s32/ep13": require("@/assets/images/episodes/s32/ep13.webp"),
   "s32/ep14": require("@/assets/images/episodes/s32/ep14.webp"),
   "s32/ep15": require("@/assets/images/episodes/s32/ep15.webp"),
+  "s32/ep16": require("@/assets/images/episodes/s32/ep16.webp"),
+  "s32/ep17": require("@/assets/images/episodes/s32/ep17.webp"),
+  "s32/ep18": require("@/assets/images/episodes/s32/ep18.webp"),
+  "s32/ep19": require("@/assets/images/episodes/s32/ep19.webp"),
+  "s32/ep20": require("@/assets/images/episodes/s32/ep20.webp"),
+  "s32/ep21": require("@/assets/images/episodes/s32/ep21.webp"),
+  "s32/ep22": require("@/assets/images/episodes/s32/ep22.webp"),
 
   // Season 33
   "s33/ep1": require("@/assets/images/episodes/s33/ep1.webp"),
@@ -557,6 +783,12 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s33/ep13": require("@/assets/images/episodes/s33/ep13.webp"),
   "s33/ep14": require("@/assets/images/episodes/s33/ep14.webp"),
   "s33/ep15": require("@/assets/images/episodes/s33/ep15.webp"),
+  "s33/ep16": require("@/assets/images/episodes/s33/ep16.webp"),
+  "s33/ep17": require("@/assets/images/episodes/s33/ep17.webp"),
+  "s33/ep18": require("@/assets/images/episodes/s33/ep18.webp"),
+  "s33/ep19": require("@/assets/images/episodes/s33/ep19.webp"),
+  "s33/ep20": require("@/assets/images/episodes/s33/ep20.webp"),
+  "s33/ep21": require("@/assets/images/episodes/s33/ep21.webp"),
 
   // Season 34
   "s34/ep1": require("@/assets/images/episodes/s34/ep1.webp"),
@@ -574,6 +806,13 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s34/ep13": require("@/assets/images/episodes/s34/ep13.webp"),
   "s34/ep14": require("@/assets/images/episodes/s34/ep14.webp"),
   "s34/ep15": require("@/assets/images/episodes/s34/ep15.webp"),
+  "s34/ep16": require("@/assets/images/episodes/s34/ep16.webp"),
+  "s34/ep17": require("@/assets/images/episodes/s34/ep17.webp"),
+  "s34/ep18": require("@/assets/images/episodes/s34/ep18.webp"),
+  "s34/ep19": require("@/assets/images/episodes/s34/ep19.webp"),
+  "s34/ep20": require("@/assets/images/episodes/s34/ep20.webp"),
+  "s34/ep21": require("@/assets/images/episodes/s34/ep21.webp"),
+  "s34/ep22": require("@/assets/images/episodes/s34/ep22.webp"),
 
   // Season 35
   "s35/ep1": require("@/assets/images/episodes/s35/ep1.webp"),
@@ -591,6 +830,9 @@ export const EPISODES_IMAGES: Record<string, any> = {
   "s35/ep13": require("@/assets/images/episodes/s35/ep13.webp"),
   "s35/ep14": require("@/assets/images/episodes/s35/ep14.webp"),
   "s35/ep15": require("@/assets/images/episodes/s35/ep15.webp"),
+  "s35/ep16": require("@/assets/images/episodes/s35/ep16.webp"),
+  "s35/ep17": require("@/assets/images/episodes/s35/ep17.webp"),
+  "s35/ep18": require("@/assets/images/episodes/s35/ep18.webp"),
 
   // Season 36
   "s36/ep1": require("@/assets/images/episodes/s36/ep1.webp"),

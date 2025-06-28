@@ -1,9 +1,10 @@
 import { db } from "@/config/firebase";
 import { AGE_12_PLUS, AGE_14_PLUS, AGE_ALL } from "@/constants/filters";
 import { COLLECTIONS } from "@/constants/firebase-collections";
-import type { Preferences } from "@/constants/types";
+import type { Language, Preferences } from "@/constants/types";
 import { EpisodeFirestore, SeasonFirestore } from "@/constants/types";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { ENGLISH_LANGUAGE } from "../constants/languages";
 
 const getFirebaseRating = (rating: string) => {
   switch (rating) {
@@ -20,11 +21,17 @@ const getFirebaseRating = (rating: string) => {
 
 export const getSeasons = async ({
   preferences,
+  language,
 }: {
   preferences: Preferences;
+  language: Language;
 }): Promise<SeasonFirestore[]> => {
   try {
-    const seasonsRef = collection(db, COLLECTIONS.SEASONS);
+    const collectionSeasonName =
+      language === ENGLISH_LANGUAGE
+        ? COLLECTIONS.SEASONS_ENGLISH
+        : COLLECTIONS.SEASONS_SPANISH;
+    const seasonsRef = collection(db, collectionSeasonName);
     const q = query(seasonsRef, orderBy("seasonNumber", "asc"));
     const querySnapshot = await getDocs(q);
 
@@ -44,7 +51,7 @@ export const getSeasons = async ({
 
         const episodesRef = collection(
           db,
-          COLLECTIONS.SEASONS,
+          collectionSeasonName,
           doc.id,
           COLLECTIONS.EPISODES
         );

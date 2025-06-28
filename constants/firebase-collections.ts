@@ -1,4 +1,5 @@
 export const COLLECTIONS = {
-  SEASONS: "seasons",
+  SEASONS_ENGLISH: "english-seasons",
+  SEASONS_SPANISH: "spanish-seasons",
   EPISODES: "episodes",
 } as const;
