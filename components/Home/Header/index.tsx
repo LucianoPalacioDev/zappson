@@ -1,20 +1,23 @@
 import Header from "@/components/common/Header";
+import LanguageMenu from "@/components/Home/LanguageMenu";
 import LanguageToggle from "@/components/Home/LanguageToggle";
-import { ENGLISH_LANGUAGE, SPANISH_LANGUAGE } from "@/constants/languages";
 import { ROUTES } from "@/constants/routes";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRouter } from "expo-router";
-import { useCallback } from "react";
-import { Text } from "react-native";
+import { useCallback, useState } from "react";
+import { Text, View } from "react-native";
 
 export default function CustomHomeHeader() {
-  const { t, language, setLanguage } = useLanguage();
+  const { t } = useLanguage();
   const router = useRouter();
+  const [isLanguageMenuVisible, setIsLanguageMenuVisible] = useState(false);
 
-  const toggleLanguage = () => {
-    setLanguage(
-      language === ENGLISH_LANGUAGE ? SPANISH_LANGUAGE : ENGLISH_LANGUAGE
-    );
+  const openLanguageMenu = () => {
+    setIsLanguageMenuVisible(true);
+  };
+
+  const closeLanguageMenu = () => {
+    setIsLanguageMenuVisible(false);
   };
 
   const handleSettings = useCallback(() => {
@@ -22,12 +25,20 @@ export default function CustomHomeHeader() {
   }, [router]);
 
   return (
-    <Header
-      title={t("welcome.title")}
-      leftIcon={<LanguageToggle />}
-      rightIcon={<Text style={{ fontSize: 24 }}>{t("home.settingsIcon")}</Text>}
-      onLeftPress={toggleLanguage}
-      onRightPress={handleSettings}
-    />
+    <View>
+      <Header
+        title={t("welcome.title")}
+        leftIcon={<LanguageToggle />}
+        rightIcon={
+          <Text style={{ fontSize: 24 }}>{t("home.settingsIcon")}</Text>
+        }
+        onLeftPress={openLanguageMenu}
+        onRightPress={handleSettings}
+      />
+      <LanguageMenu
+        isVisible={isLanguageMenuVisible}
+        onClose={closeLanguageMenu}
+      />
+    </View>
   );
 }

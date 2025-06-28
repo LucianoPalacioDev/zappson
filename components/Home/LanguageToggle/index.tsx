@@ -10,7 +10,7 @@ export default function LanguageToggle() {
   return (
     <View style={styles.languageToggle}>
       <Text style={styles.languageText}>
-        {language === ENGLISH_LANGUAGE ? "🇬🇧" : "🇪🇸"}
+        {language === ENGLISH_LANGUAGE ? "🇺🇸" : "🇦🇷"}
       </Text>
     </View>
   );
