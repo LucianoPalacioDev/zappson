@@ -51,7 +51,7 @@ export default {
   },
   episode: {
     title: "Random Episode",
-    loading: "Looking for an episodes...",
+    loading: "Looking for the episodes...",
     season: "S{{season}}",
     episode: "E{{episode}}",
     buttons: {
