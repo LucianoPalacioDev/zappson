@@ -21,7 +21,7 @@ export default function useStyles() {
     },
     imageContainer: {
       backgroundColor: colors.simpsonBlue,
-      height: 210,
+      height: "30%",
       justifyContent: "center",
       alignItems: "center",
       borderTopEndRadius: 12,
