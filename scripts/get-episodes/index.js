@@ -10,19 +10,28 @@ const {
   getFormattedEpisode,
   ensureDirectoryExists,
 } = require("./utils/utils");
-const { SEASON_CANT, OUTPUT_DIR, OUTPUT_PATH } = require("./utils/Constants");
+const { OUTPUT_DIR_ENGLISH, OUTPUT_PATH } = require("./utils/Constants");
+const seasonsIds = require("./utils/seasons-ids.json");
+const { fetchSeasonData } = require("./utils/hidden-utils");
 
 const getEpisodes = async () => {
   console.log("🚀 Getting episodes...");
   const formattedEpisodes = getInitialFormattedEpisodes();
 
-  for (let i = 1; i <= SEASON_CANT; i++) {
+  for (const [index, seasonId] of seasonsIds.entries()) {
+    const seasonKey = `s${index + 1}`;
+    if (!seasonId) {
+      console.warn(`No ID found for season ${seasonId}`);
+      continue;
+    }
+
     try {
-      const seasonData = require(`./data/episodes-s${i}.json`);
+      console.log(`Fetching data for season ${seasonId}...`);
+      const seasonData = await fetchSeasonData(seasonId);
+
       const seasonEpisodes = episodesDataFromSeason(seasonData);
 
       for (const episode of seasonEpisodes) {
-        const seasonKey = `s${i}`;
         if (!formattedEpisodes[seasonKey]) {
           formattedEpisodes[seasonKey] = [];
         }
@@ -30,8 +39,8 @@ const getEpisodes = async () => {
       }
     } catch (error) {
       console.error(
-        `Error trying to get the episodes from season ${i}:`,
-        error
+        `Error trying to get the episodes from season ${seasonId}:`,
+        error.message
       );
     }
   }
@@ -40,7 +49,7 @@ const getEpisodes = async () => {
 
 const saveEpisodesOnLocalFile = async (episodes) => {
   try {
-    ensureDirectoryExists(OUTPUT_DIR);
+    ensureDirectoryExists(OUTPUT_DIR_ENGLISH);
 
     const jsonContent = JSON.stringify(episodes, null, 2);
 
