@@ -5,7 +5,12 @@
 
 const admin = require("firebase-admin");
 const serviceAccount = require("./utils/serviceAccountKey.json");
-const episodes = require("../episodes.json");
+const episodesSpanish = require("../data-spanish/episodes.json");
+const episodesEnglish = require("../data-english/episodes.json");
+
+const SEASON_ENGISH_COLLECTION_NAME = "english-seasons";
+const SEASON_SPANISH_COLLECTION_NAME = "spanish-seasons";
+const EPISODES_COLLECTION_NAME = "episodes";
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -13,11 +18,13 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-const saveSeasonsToFirestore = async (episodesData) => {
+const saveSeasonsToFirestore = async (episodesData, collectionName) => {
   try {
-    console.log("🚀 Starting saving seasons and episodes...");
+    console.log(
+      `🚀 Starting saving seasons and episodes on ${collectionName}...`
+    );
 
-    const seasonsRef = db.collection("seasons");
+    const seasonsRef = db.collection(collectionName);
     for (const [seasonNumber, seasonEpisodes] of Object.entries(episodesData)) {
       try {
         console.log(
@@ -37,7 +44,9 @@ const saveSeasonsToFirestore = async (episodesData) => {
 
         seasonEpisodes.forEach((episodeObj) => {
           const [episodeId, episodeData] = Object.entries(episodeObj)[0];
-          const episodeRef = seasonRef.collection("episodes").doc(episodeId);
+          const episodeRef = seasonRef
+            .collection(EPISODES_COLLECTION_NAME)
+            .doc(episodeId);
           batch.set(episodeRef, {
             ...episodeData,
             createdAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -54,7 +63,9 @@ const saveSeasonsToFirestore = async (episodesData) => {
       }
     }
 
-    console.log("🎉 Process completed! All seasons have been saved.");
+    console.log(
+      `🎉 Process completed! All seasons have been saved on ${collectionName}.`
+    );
   } catch (error) {
     console.error("❌ Error in saveSeasonsToFirestore:", error);
     throw error;
@@ -65,7 +76,14 @@ const saveSeasonsToFirestore = async (episodesData) => {
 
 (async () => {
   try {
-    await saveSeasonsToFirestore(episodes);
+    await saveSeasonsToFirestore(
+      episodesSpanish,
+      SEASON_SPANISH_COLLECTION_NAME
+    );
+    await saveSeasonsToFirestore(
+      episodesEnglish,
+      SEASON_ENGISH_COLLECTION_NAME
+    );
     process.exit(0);
   } catch (error) {
     console.error("❌ Error in the main execution:", error);
