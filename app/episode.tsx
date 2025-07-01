@@ -1,7 +1,6 @@
 import ErrorSeasonFetch from "@/components/Episode/Error/index";
 import LoadingEpisode from "@/components/Episode/Loading";
 import { EPISODES_IMAGES } from "@/constants/episodes";
-import { DEFAULT_PREFERENCES } from "@/constants/filters";
 import { ROUTES } from "@/constants/routes";
 import { PREFERENCES_KEY } from "@/constants/store-keys";
 import {
@@ -32,7 +31,7 @@ export default function EpisodeScreen() {
   const styles = useStyles();
   const { t, language } = useLanguage();
 
-  const fetchEpisode = useCallback(() => {
+  const searchEpisode = useCallback(() => {
     if (episodes.length === 0) return;
 
     setEpisode((prevEpisode) => {
@@ -46,39 +45,39 @@ export default function EpisodeScreen() {
     setLoading(false);
   }, [episodes]);
 
-  useEffect(() => {
-    const fetchSeasons = async () => {
-      try {
-        const savedPreferencesString = await SecureStore.getItemAsync(
-          PREFERENCES_KEY
-        );
-        const savedPreferences = JSON.parse(savedPreferencesString || "{}");
-        const seasonsData = await getSeasons({
-          preferences: savedPreferences as Preferences,
-          language: language as Language,
-        });
-        const episodesData = getEpisodesFromSeasons(seasonsData);
-        setEpisodes(episodesData);
-        return true;
-      } catch (err) {
-        console.log("Error fetching seasons:", err);
-        setError(t("episode.errors.fetchError"));
-        setLoading(false);
-        return false;
-      }
-    };
-
-    fetchSeasons();
+  const fetchSeasons = useCallback(async () => {
+    try {
+      const savedPreferencesString = await SecureStore.getItemAsync(
+        PREFERENCES_KEY
+      );
+      const savedPreferences = JSON.parse(savedPreferencesString || "{}");
+      const seasonsData = await getSeasons({
+        preferences: savedPreferences as Preferences,
+        language: language as Language,
+      });
+      const episodesData = getEpisodesFromSeasons(seasonsData);
+      setEpisodes(episodesData);
+      return true;
+    } catch (err) {
+      console.log("Error fetching seasons:", err);
+      setError(t("episode.errors.fetchError"));
+      setLoading(false);
+      return false;
+    }
   }, [t, language]);
 
   useEffect(() => {
-    fetchEpisode();
-  }, [fetchEpisode]);
+    fetchSeasons();
+  }, [fetchSeasons]);
+
+  useEffect(() => {
+    searchEpisode();
+  }, [searchEpisode]);
 
   const handleNewEpisode = () => {
     setLoading(true);
     setEpisode(null);
-    fetchEpisode();
+    searchEpisode();
   };
 
   const handleBack = () => {
@@ -88,19 +87,7 @@ export default function EpisodeScreen() {
   const handleRetry = async () => {
     setError(null);
     setLoading(true);
-    try {
-      const seasonsData = await getSeasons({
-        preferences: DEFAULT_PREFERENCES,
-        language: language as Language,
-      });
-      const episodesData = getEpisodesFromSeasons(seasonsData);
-      setEpisodes(episodesData);
-      setLoading(false);
-    } catch (err) {
-      console.log("Error retrying fetch:", err);
-      setError(t("episode.errors.retryError"));
-      setLoading(false);
-    }
+    fetchSeasons();
   };
 
   const episodeImage = useMemo(() => {
