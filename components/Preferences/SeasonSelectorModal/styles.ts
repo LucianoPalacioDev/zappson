@@ -12,11 +12,14 @@ export default function useStyles() {
       backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
     modalContent: {
-      width: "90%",
+      marginHorizontal: 16,
       maxHeight: "80%",
       backgroundColor: colors.white,
       borderRadius: 12,
       padding: 16,
+      display: "flex",
+      flexDirection: "column",
+      gap: 12,
       shadowColor: colors.black,
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.25,
@@ -27,13 +30,11 @@ export default function useStyles() {
       fontSize: 20,
       fontWeight: "bold",
       color: colors.black,
-      marginBottom: 16,
       textAlign: "center",
     },
     actionsRow: {
       flexDirection: "row",
       justifyContent: "space-between",
-      marginBottom: 16,
     },
     actionButton: {
       padding: 8,
@@ -47,7 +48,7 @@ export default function useStyles() {
     },
     seasonsContainer: {
       maxHeight: 300,
-      marginBottom: 16,
+      backgroundColor: "red",
     },
     seasonsGrid: {
       flexDirection: "row",
@@ -74,33 +75,35 @@ export default function useStyles() {
       color: colors.white,
       fontWeight: "bold",
     },
-    buttonContainer: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-    },
-    button: {
-      flex: 1,
-      padding: 16,
-      borderRadius: 8,
-      justifyContent: "center",
-      alignItems: "center",
-      marginHorizontal: 4,
-    },
-    cancelButton: {
-      backgroundColor: colors.simpsonRed + "20", // Add transparency
+    buttonsContainer: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 12,
     },
     applyButton: {
       backgroundColor: colors.simpsonBlue,
-    },
-    cancelButtonText: {
-      color: colors.black,
-      fontSize: 16,
-      fontWeight: "500",
+      padding: 16,
+      borderRadius: 12,
+      alignItems: "center",
     },
     applyButtonText: {
       color: colors.white,
+      fontWeight: "bold",
       fontSize: 16,
-      fontWeight: "500",
+    },
+    applyButtonDisabled: {
+      backgroundColor: "#9CA3AF",
+    },
+    cancelButton: {
+      backgroundColor: "#666",
+      padding: 16,
+      borderRadius: 16,
+      alignItems: "center",
+    },
+    cancelButtonText: {
+      color: colors.white,
+      fontWeight: "bold",
+      fontSize: 16,
     },
   });
 }

@@ -105,15 +105,15 @@ export default function SeasonSelectorModal({
             </View>
           </ScrollView>
 
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={[styles.button, styles.cancelButton]}
-              onPress={onClose}
-            >
+          <View style={styles.buttonsContainer}>
+            <TouchableOpacity style={styles.cancelButton} onPress={onClose}>
               <Text style={styles.cancelButtonText}>{t("common.cancel")}</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.button, styles.applyButton]}
+              style={[
+                styles.applyButton,
+                tempSelectedSeasons.length === 0 && styles.applyButtonDisabled,
+              ]}
               onPress={handleApply}
               disabled={tempSelectedSeasons.length === 0}
             >
