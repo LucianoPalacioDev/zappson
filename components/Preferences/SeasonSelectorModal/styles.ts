@@ -1,8 +1,16 @@
 import { useTheme } from "@/hooks/useThemeColor";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const DEFAULT_PADDING = 16;
+const DEFAULT_MARGIN = 12;
 
 export default function useStyles() {
   const { colors } = useTheme();
+  const modalWidth =
+    Dimensions.get("window").width - DEFAULT_MARGIN * 2 - DEFAULT_PADDING;
+  const numColumns = 6;
+  const itemSpacing = 4;
+  const itemSize = (modalWidth - (numColumns + 1) * itemSpacing) / numColumns;
 
   return StyleSheet.create({
     modalOverlay: {
@@ -10,13 +18,13 @@ export default function useStyles() {
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: "rgba(0, 0, 0, 0.5)",
+      width: "100%",
     },
     modalContent: {
-      marginHorizontal: 16,
-      maxHeight: "80%",
+      marginHorizontal: DEFAULT_MARGIN,
       backgroundColor: colors.white,
       borderRadius: 12,
-      padding: 16,
+      padding: DEFAULT_PADDING,
       display: "flex",
       flexDirection: "column",
       gap: 12,
@@ -48,16 +56,10 @@ export default function useStyles() {
     },
     seasonsGrid: {
       width: "100%",
-      flexDirection: "row",
-      flexWrap: "wrap",
-      justifyContent: "space-between",
-      backgroundColor: "red",
     },
     seasonItem: {
-      width: "15%",
-      aspectRatio: 1,
-      padding: 2,
-      margin: 2,
+      width: itemSize,
+      height: itemSize,
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: colors.simpsonBlue + "20",

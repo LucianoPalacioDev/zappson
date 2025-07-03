@@ -1,7 +1,7 @@
 import { SEASON_CANT } from "@/constants/filters";
 import { useLanguage } from "@/contexts/LanguageContext";
 import React, { useCallback, useState } from "react";
-import { Modal, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Modal, Text, TouchableOpacity, View } from "react-native";
 import useStyles from "./styles";
 
 type SeasonSelectorModalProps = {
@@ -77,10 +77,12 @@ export default function SeasonSelectorModal({
             </TouchableOpacity>
           </View>
           <View style={styles.seasonsGrid}>
-            {Array.from({ length: SEASON_CANT }, (_, i) => i + 1).map(
-              (season) => (
+            <FlatList
+              data={Array.from({ length: SEASON_CANT }, (_, i) => i + 1)}
+              keyExtractor={(item) => item.toString()}
+              numColumns={6}
+              renderItem={({ item: season }) => (
                 <TouchableOpacity
-                  key={season}
                   style={[
                     styles.seasonItem,
                     tempSelectedSeasons.includes(season) &&
@@ -98,8 +100,8 @@ export default function SeasonSelectorModal({
                     {season}
                   </Text>
                 </TouchableOpacity>
-              )
-            )}
+              )}
+            />
           </View>
           <View style={styles.buttonsContainer}>
             <TouchableOpacity style={styles.cancelButton} onPress={onClose}>
