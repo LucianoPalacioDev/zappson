@@ -1,7 +1,7 @@
 import { SEASON_CANT } from "@/constants/filters";
 import { useLanguage } from "@/contexts/LanguageContext";
 import React, { useCallback, useState } from "react";
-import { Modal, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Modal, Text, TouchableOpacity, View } from "react-native";
 import useStyles from "./styles";
 
 type SeasonSelectorModalProps = {
@@ -76,35 +76,31 @@ export default function SeasonSelectorModal({
               </Text>
             </TouchableOpacity>
           </View>
-
-          <ScrollView style={styles.seasonsContainer}>
-            <View style={styles.seasonsGrid}>
-              {Array.from({ length: SEASON_CANT }, (_, i) => i + 1).map(
-                (season) => (
-                  <TouchableOpacity
-                    key={season}
+          <View style={styles.seasonsGrid}>
+            {Array.from({ length: SEASON_CANT }, (_, i) => i + 1).map(
+              (season) => (
+                <TouchableOpacity
+                  key={season}
+                  style={[
+                    styles.seasonItem,
+                    tempSelectedSeasons.includes(season) &&
+                      styles.seasonItemSelected,
+                  ]}
+                  onPress={() => toggleSeason(season)}
+                >
+                  <Text
                     style={[
-                      styles.seasonItem,
+                      styles.seasonText,
                       tempSelectedSeasons.includes(season) &&
-                        styles.seasonItemSelected,
+                        styles.seasonTextSelected,
                     ]}
-                    onPress={() => toggleSeason(season)}
                   >
-                    <Text
-                      style={[
-                        styles.seasonText,
-                        tempSelectedSeasons.includes(season) &&
-                          styles.seasonTextSelected,
-                      ]}
-                    >
-                      {season}
-                    </Text>
-                  </TouchableOpacity>
-                )
-              )}
-            </View>
-          </ScrollView>
-
+                    {season}
+                  </Text>
+                </TouchableOpacity>
+              )
+            )}
+          </View>
           <View style={styles.buttonsContainer}>
             <TouchableOpacity style={styles.cancelButton} onPress={onClose}>
               <Text style={styles.cancelButtonText}>{t("common.cancel")}</Text>

@@ -46,22 +46,21 @@ export default function useStyles() {
       fontSize: 14,
       fontWeight: "500",
     },
-    seasonsContainer: {
-      maxHeight: 300,
-      backgroundColor: "red",
-    },
     seasonsGrid: {
+      width: "100%",
       flexDirection: "row",
       flexWrap: "wrap",
-      justifyContent: "flex-start",
+      justifyContent: "space-between",
+      backgroundColor: "red",
     },
     seasonItem: {
-      width: "14%",
+      width: "15%",
       aspectRatio: 1,
-      margin: "1%",
+      padding: 2,
+      margin: 2,
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: colors.simpsonBlue + "20", // Add transparency
+      backgroundColor: colors.simpsonBlue + "20",
       borderRadius: 8,
     },
     seasonItemSelected: {
