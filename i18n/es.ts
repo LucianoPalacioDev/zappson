@@ -26,6 +26,12 @@ export default {
       classic: { emoji: "👑", label: "Época Clásica (T1-T8)" },
       golden: { emoji: "⭐", label: "Época Dorada (T9-T15)" },
       modern: { emoji: "🆕", label: "Época Moderna (T16+)" },
+      custom: { emoji: "🔢", label: "Epocas Personalizadas" },
+      customModal: {
+        title: "Seleccionar Temporadas",
+        selectAll: "📋 Todas",
+        clearAll: "🗑️ Limpiar",
+      },
     },
     age: {
       title: "🔞 Clasificacion",
@@ -75,5 +81,7 @@ export default {
     loading: "⏳ Cargando...",
     retry: "🔄 Reintentar",
     backToHome: "🏠 Volver al Inicio",
+    cancel: "❌ Cancelar",
+    apply: "✅ Aplicar",
   },
 };

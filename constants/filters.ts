@@ -10,6 +10,7 @@ export const ERA_ALL = "all";
 export const ERA_CLASSIC = "classic";
 export const ERA_GOLDEN = "golden";
 export const ERA_MODERN = "modern";
+export const ERA_CUSTOM = "custom";
 
 export const AGE_ALL = "all";
 export const AGE_12_PLUS = "sam12";
@@ -48,6 +49,10 @@ export const ALL_ERAS_TYPES = [
   {
     value: ERA_MODERN,
     seasons: generateSeasons(MODERN_SEASON_RANGE[0], MODERN_SEASON_RANGE[1]),
+  },
+  {
+    value: ERA_CUSTOM,
+    seasons: [],
   },
 ];
 

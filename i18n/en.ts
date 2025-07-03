@@ -26,6 +26,12 @@ export default {
       classic: { emoji: "👑", label: "Classic Era (S1-S8)" },
       golden: { emoji: "⭐", label: "Golden Era (S9-S15)" },
       modern: { emoji: "🆕", label: "Modern Era (S16+)" },
+      custom: { emoji: "🔢", label: "Custom" },
+      customModal: {
+        title: "Select Seasons",
+        selectAll: "📋 All",
+        clearAll: "🗑️ Clear",
+      },
     },
     age: {
       title: "🔞 Rating",
@@ -75,5 +81,7 @@ export default {
     loading: "⏳ Loading...",
     retry: "🔄 Try Again",
     backToHome: "🏠 Back to Home",
+    cancel: "❌ Cancel",
+    apply: "✅ Apply",
   },
 };

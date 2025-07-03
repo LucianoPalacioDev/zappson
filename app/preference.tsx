@@ -1,4 +1,5 @@
 import FilterBox from "@/components/Preferences/FilterBox";
+import SeasonSelectorModal from "@/components/Preferences/SeasonSelectorModal";
 import {
   ALL_AGE_TYPES,
   ALL_ERAS_TYPES,
@@ -6,6 +7,7 @@ import {
   DESCRIPTION_LENGTH_BRIEF,
   DESCRIPTION_LENGTH_FULL,
   DESCRIPTION_LENGTH_MEDIUM,
+  ERA_CUSTOM,
 } from "@/constants/filters";
 import { ROUTES } from "@/constants/routes";
 import { PREFERENCES_KEY } from "@/constants/store-keys";
@@ -21,6 +23,7 @@ export default function PreferencesScreen() {
   const [preferences, setPreferences] =
     useState<Preferences>(DEFAULT_PREFERENCES);
   const [isLoading, setIsLoading] = useState(false);
+  const [showCustomEraModal, setShowCustomEraModal] = useState(false);
 
   const styles = useStyles();
   const router = useRouter();
@@ -68,6 +71,13 @@ export default function PreferencesScreen() {
   const handleSave = useCallback(async () => {
     setIsLoading(true);
     try {
+      if (
+        preferences.era.value === ERA_CUSTOM &&
+        preferences.era.seasons.length === 0
+      ) {
+        return;
+      }
+
       await SecureStore.setItemAsync(
         PREFERENCES_KEY,
         JSON.stringify(preferences)
@@ -80,33 +90,65 @@ export default function PreferencesScreen() {
     }
   }, [preferences, router]);
 
+  const handleCustomEraSelect = useCallback((seasons: number[]) => {
+    setPreferences((prev) => ({
+      ...prev,
+      era: {
+        value: ERA_CUSTOM,
+        seasons: [...seasons].sort((a, b) => a - b),
+      },
+    }));
+  }, []);
+
   const handleBack = useCallback(() => {
     router.replace(`/${ROUTES.HOME}`);
   }, [router]);
+
+  const handleShowCustomEraModal = useCallback(() => {
+    setShowCustomEraModal(true);
+  }, []);
+
+  const handleHideCustomEraModal = useCallback(() => {
+    setShowCustomEraModal(false);
+  }, []);
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.content}>
         <FilterBox title="preferences.era.title">
           <View style={styles.optionContainer}>
-            {eras.map((era) => (
-              <TouchableOpacity
-                key={era.value}
-                style={[
-                  styles.option,
-                  preferences.era.value === era.value && styles.optionSelected,
-                ]}
-                onPress={() =>
-                  setPreferences({
-                    ...preferences,
-                    era: { value: era.value, seasons: era.seasons },
-                  })
-                }
-              >
-                <Text style={styles.optionEmoji}>{era.emoji}</Text>
-                <Text style={styles.optionText}>{era.label}</Text>
-              </TouchableOpacity>
-            ))}
+            {eras.map((era) => {
+              const isSelected = preferences.era.value === era.value;
+              const isCustom = era.value === ERA_CUSTOM;
+
+              return (
+                <TouchableOpacity
+                  key={era.value}
+                  style={[styles.option, isSelected && styles.optionSelected]}
+                  onPress={() => {
+                    if (isCustom) {
+                      handleShowCustomEraModal();
+                      return;
+                    }
+                    setPreferences({
+                      ...preferences,
+                      era: { value: era.value, seasons: era.seasons },
+                    });
+                  }}
+                >
+                  <Text style={styles.optionEmoji}>{era.emoji}</Text>
+                  <Text style={styles.optionText}>
+                    {isCustom &&
+                    preferences.era.value === ERA_CUSTOM &&
+                    preferences.era.seasons.length > 0
+                      ? `${t("preferences.era.custom.label")} (${
+                          preferences.era.seasons.length
+                        })`
+                      : era.label}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
           </View>
         </FilterBox>
         <FilterBox title="preferences.age.title">
@@ -202,6 +244,12 @@ export default function PreferencesScreen() {
           </TouchableOpacity>
         </View>
       </View>
+      <SeasonSelectorModal
+        visible={showCustomEraModal}
+        onClose={handleHideCustomEraModal}
+        selectedSeasons={preferences.era.seasons}
+        onSelectSeasons={handleCustomEraSelect}
+      />
     </ScrollView>
   );
 }
