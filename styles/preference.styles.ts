@@ -54,6 +54,11 @@ export default function useStyles() {
       flexDirection: "row",
       alignItems: "center",
     },
+    buttonsContainer: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 12,
+    },
     saveButton: {
       backgroundColor: colors.simpsonBlue,
       padding: 16,
@@ -64,11 +69,6 @@ export default function useStyles() {
       color: colors.white,
       fontWeight: "bold",
       fontSize: 16,
-    },
-    buttonsContainer: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 12,
     },
     cancelButton: {
       backgroundColor: "#666",
