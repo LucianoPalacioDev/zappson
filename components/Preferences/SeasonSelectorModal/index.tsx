@@ -1,6 +1,6 @@
 import { SEASON_CANT } from "@/constants/filters";
 import { useLanguage } from "@/contexts/LanguageContext";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { FlatList, Modal, Text, TouchableOpacity, View } from "react-native";
 import useStyles from "./styles";
 
@@ -21,6 +21,11 @@ export default function SeasonSelectorModal({
   const { t } = useLanguage();
   const [tempSelectedSeasons, setTempSelectedSeasons] =
     useState<number[]>(selectedSeasons);
+
+  useEffect(() => {
+    if (selectedSeasons.length === 0) return;
+    setTempSelectedSeasons(selectedSeasons);
+  }, [selectedSeasons]);
 
   const toggleSeason = useCallback((season: number) => {
     setTempSelectedSeasons((prevTempSelectedSeasons) =>
