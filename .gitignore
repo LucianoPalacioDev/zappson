@@ -53,4 +53,10 @@ config/firebase.config.json
 # Images data
 assets/images/episodes
 
+# Android data
+android
+
+# Ios
+ios
+
 
