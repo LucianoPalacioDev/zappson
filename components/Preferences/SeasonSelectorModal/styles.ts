@@ -3,14 +3,18 @@ import { Dimensions, StyleSheet } from "react-native";
 
 const DEFAULT_PADDING = 16;
 const DEFAULT_MARGIN = 12;
+const DEFAULT_ITEM_SPACING = 4;
 
 export default function useStyles() {
   const { colors } = useTheme();
   const modalWidth =
-    Dimensions.get("window").width - DEFAULT_MARGIN * 2 - DEFAULT_PADDING;
+    Dimensions.get("window").width -
+    DEFAULT_MARGIN * 2 -
+    DEFAULT_PADDING -
+    DEFAULT_ITEM_SPACING * 6;
   const numColumns = 6;
-  const itemSpacing = 4;
-  const itemSize = (modalWidth - (numColumns + 1) * itemSpacing) / numColumns;
+  const itemSize =
+    (modalWidth - (numColumns + 1) * DEFAULT_ITEM_SPACING) / numColumns;
 
   return StyleSheet.create({
     modalOverlay: {
@@ -60,6 +64,7 @@ export default function useStyles() {
     seasonItem: {
       width: itemSize,
       height: itemSize,
+      margin: DEFAULT_ITEM_SPACING / 2,
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: colors.simpsonBlue + "20",
