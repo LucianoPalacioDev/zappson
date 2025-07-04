@@ -1,3 +1,4 @@
+import Donut from "@/components/common/Donut";
 import { Colors } from "@/constants/colors";
 import { ROUTES } from "@/constants/routes";
 import { USERNAME_KEY } from "@/constants/store-keys";
@@ -5,14 +6,13 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import useStyles from "@/styles/home.styles";
 import { useRouter } from "expo-router";
 import * as SecureStore from "expo-secure-store";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Animated, Text, TouchableOpacity, View } from "react-native";
+import React, { useCallback, useEffect, useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 
 export default function HomeScreen() {
   const [userName, setUserName] = useState("");
   const router = useRouter();
   const { t } = useLanguage();
-  const bounceAnim = useRef(new Animated.Value(0)).current;
   const styles = useStyles();
 
   const loadUserName = useCallback(async () => {
@@ -33,29 +33,6 @@ export default function HomeScreen() {
     loadUserName();
   }, [loadUserName]);
 
-  useEffect(() => {
-    const animation = Animated.loop(
-      Animated.sequence([
-        Animated.timing(bounceAnim, {
-          toValue: -15,
-          duration: 1000,
-          useNativeDriver: true,
-        }),
-        Animated.timing(bounceAnim, {
-          toValue: 0,
-          duration: 1000,
-          useNativeDriver: true,
-        }),
-      ])
-    );
-
-    animation.start();
-
-    return () => {
-      animation.stop();
-    };
-  }, [bounceAnim]);
-
   const handleRandomEpisode = useCallback(() => {
     router.push(`/${ROUTES.EPISODE}`);
   }, [router]);
@@ -73,15 +50,7 @@ export default function HomeScreen() {
           </Text>
           <Text style={styles.subtitle}>{t("home.subtitle")}</Text>
         </View>
-
-        <Animated.Text
-          style={[
-            styles.character,
-            { transform: [{ translateY: bounceAnim }] },
-          ]}
-        >
-          {t("home.donutIcon")}
-        </Animated.Text>
+        <Donut />
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity

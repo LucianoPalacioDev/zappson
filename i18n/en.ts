@@ -15,7 +15,6 @@ export default {
     preferences: "Preferences",
     settingsIcon: "⚙️",
     tvIcon: "📺",
-    donutIcon: "🍩",
     diceIcon: "🎲",
   },
   preferences: {
@@ -78,6 +77,9 @@ export default {
     goBackButton: "Back to Home",
   },
   common: {
+    icons: {
+      donut: "🍩",
+    },
     loading: "⏳ Loading...",
     retry: "🔄 Try Again",
     backToHome: "🏠 Back to Home",

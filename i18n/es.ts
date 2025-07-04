@@ -15,7 +15,6 @@ export default {
     preferences: "Preferencias",
     settingsIcon: "⚙️",
     tvIcon: "📺",
-    donutIcon: "🍩",
     diceIcon: "🎲",
   },
   preferences: {

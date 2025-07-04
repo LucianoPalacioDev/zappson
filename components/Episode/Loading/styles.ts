@@ -19,5 +19,9 @@ export default function useStyles() {
       fontSize: 18,
       marginBottom: 16,
     },
+    character: {
+      fontSize: 72,
+      marginBottom: 48,
+    },
   });
 }
