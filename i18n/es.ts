@@ -1,9 +1,9 @@
 export default {
   welcome: {
-    title: "Los Simpsons",
+    title: "Zappson",
     subtitle: "¡Bienvenido!",
     description:
-      "Descubre episodios aleatorios de la familia más famosa de Springfield. ¡Prepárate para reír con Homer, Marge, Bart, Lisa y Maggie!",
+      "Volvé a disfrutar Los Simpson como antes: sin elegir el episodio. Descubrí capítulos al azar y ajustá tus preferencias como temporada o clasificación de edad.",
     namePlaceholder: "Escribe tu nombre aquí",
     continueButton: "Continuar",
     nameQuestion: "¿Cuál es tu nombre?",
@@ -26,7 +26,7 @@ export default {
       classic: { emoji: "👑", label: "Época Clásica (T1-T8)" },
       golden: { emoji: "⭐", label: "Época Dorada (T9-T15)" },
       modern: { emoji: "🆕", label: "Época Moderna (T16+)" },
-      custom: { emoji: "🔢", label: "Epocas Personalizadas" },
+      custom: { emoji: "🔢", label: "Época Personalizada" },
       customModal: {
         title: "Seleccionar Temporadas",
         selectAll: "📋 Todas",
@@ -47,7 +47,7 @@ export default {
     },
     specials: {
       title: "🎃 Episodios Especiales",
-      label: "Incluir Treehouse of Horror",
+      label: "Treehouse of Horror",
       description: "Episodios especiales de Halloween",
       emoji: "👻",
     },
@@ -78,6 +78,9 @@ export default {
     goBackButton: "Volver al inicio",
   },
   common: {
+    icons: {
+      donut: "🍩",
+    },
     loading: "⏳ Cargando...",
     retry: "🔄 Reintentar",
     backToHome: "🏠 Volver al Inicio",

@@ -1,9 +1,9 @@
 export default {
   welcome: {
-    title: "The Simpsons",
+    title: "Zappson",
     subtitle: "Welcome!",
     description:
-      "Discover random episodes of Springfield's most famous family. Get ready to laugh with Homer, Marge, Bart, Lisa, and Maggie!",
+      "Enjoy The Simpsons like the good old days: no episode selection. Discover random episodes and set your preferences like season or age rating. Let channel surfing choose for you!",
     namePlaceholder: "Type your name here",
     continueButton: "Continue",
     nameQuestion: "What is your name?",
@@ -26,7 +26,7 @@ export default {
       classic: { emoji: "👑", label: "Classic Era (S1-S8)" },
       golden: { emoji: "⭐", label: "Golden Era (S9-S15)" },
       modern: { emoji: "🆕", label: "Modern Era (S16+)" },
-      custom: { emoji: "🔢", label: "Custom" },
+      custom: { emoji: "🔢", label: "Custom Era" },
       customModal: {
         title: "Select Seasons",
         selectAll: "📋 All",
@@ -47,7 +47,7 @@ export default {
     },
     specials: {
       title: "🎃 Special Episodes",
-      label: "Include Treehouse of Horror",
+      label: "Treehouse of Horror",
       description: "Halloween special episodes",
       emoji: "👻",
     },
