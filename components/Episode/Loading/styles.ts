@@ -16,7 +16,9 @@ export default function useStyles() {
       marginBottom: 16,
     },
     loadingText: {
-      fontSize: 18,
+      color: colors.white,
+      fontSize: 24,
+      fontWeight: "500",
       marginBottom: 16,
     },
     character: {

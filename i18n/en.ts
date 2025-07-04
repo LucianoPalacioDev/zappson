@@ -10,7 +10,7 @@ export default {
   },
   home: {
     greeting: "Hello, {{name}}! 👋",
-    subtitle: "What would you like to do today?",
+    subtitle: "Start zapping and find an episode",
     randomEpisode: "Random Episode",
     preferences: "Preferences",
     settingsIcon: "⚙️",
@@ -56,7 +56,7 @@ export default {
   },
   episode: {
     title: "Random Episode",
-    loading: "Looking for the episodes...",
+    loading: "Looking for the episodes",
     season: "S{{season}}",
     episode: "E{{episode}}",
     buttons: {
@@ -80,7 +80,7 @@ export default {
     icons: {
       donut: "🍩",
     },
-    loading: "⏳ Loading...",
+    loading: "⏳ Loading",
     retry: "🔄 Try Again",
     backToHome: "🏠 Back to Home",
     cancel: "❌ Cancel",

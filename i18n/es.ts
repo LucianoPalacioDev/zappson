@@ -10,7 +10,7 @@ export default {
   },
   home: {
     greeting: "¡Hola, {{name}}! 👋",
-    subtitle: "¿Qué te gustaría hacer hoy?",
+    subtitle: "Zappeá y descubrí un episodio",
     randomEpisode: "Episodio Aleatorio",
     preferences: "Preferencias",
     settingsIcon: "⚙️",
@@ -56,7 +56,7 @@ export default {
   },
   episode: {
     title: "Episodio Aleatorio",
-    loading: "Buscando episodios...",
+    loading: "Buscando episodios",
     season: "T{{season}}",
     episode: "E{{episode}}",
     buttons: {
@@ -80,7 +80,7 @@ export default {
     icons: {
       donut: "🍩",
     },
-    loading: "⏳ Cargando...",
+    loading: "⏳ Cargando",
     retry: "🔄 Reintentar",
     backToHome: "🏠 Volver al Inicio",
     cancel: "❌ Cancelar",

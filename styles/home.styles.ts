@@ -58,6 +58,7 @@ export default function useStyles() {
     },
     subtitle: {
       fontSize: 18,
+      fontWeight: 600,
       color: colors.white,
       fontFamily: "ComicNeue-Regular",
     },
