@@ -22,9 +22,10 @@ export default {
     era: {
       title: "🎭 Época",
       all: { emoji: "📺", label: "Todas las épocas" },
-      classic: { emoji: "👑", label: "Época Clásica (T1-T8)" },
-      golden: { emoji: "⭐", label: "Época Dorada (T9-T15)" },
-      modern: { emoji: "🆕", label: "Época Moderna (T16+)" },
+      classic: { emoji: "👑", label: "Época Clásica (T1-T3)" },
+      golden: { emoji: "⭐", label: "Época Dorada (T4-T8)" },
+      intermediate: { emoji: "🔄", label: "Época Intermedia (T9-T12)" },
+      modern: { emoji: "🆕", label: "Época Moderna (T13+)" },
       custom: { emoji: "🔢", label: "Época Personalizada" },
       customModal: {
         title: "Seleccionar Temporadas",

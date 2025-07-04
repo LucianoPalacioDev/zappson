@@ -22,9 +22,10 @@ export default {
     era: {
       title: "🎭 Era",
       all: { emoji: "📺", label: "All Eras" },
-      classic: { emoji: "👑", label: "Classic Era (S1-S8)" },
-      golden: { emoji: "⭐", label: "Golden Era (S9-S15)" },
-      modern: { emoji: "🆕", label: "Modern Era (S16+)" },
+      classic: { emoji: "👑", label: "Classic Era (S1-S3)" },
+      golden: { emoji: "⭐", label: "Golden Era (S4-S8)" },
+      intermediate: { emoji: "🔄", label: "Intermediate Era (S9-S12)" },
+      modern: { emoji: "🆕", label: "Modern Era (S13+)" },
       custom: { emoji: "🔢", label: "Custom Era" },
       customModal: {
         title: "Select Seasons",
