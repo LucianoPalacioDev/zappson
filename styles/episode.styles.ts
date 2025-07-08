@@ -1,8 +1,9 @@
 import { useTheme } from "@/hooks/useThemeColor";
-import { StyleSheet } from "react-native";
+import { StyleSheet, useWindowDimensions } from "react-native";
 
 export default function useStyles() {
   const { colors } = useTheme();
+  const { height } = useWindowDimensions();
 
   return StyleSheet.create({
     container: {
@@ -69,6 +70,9 @@ export default function useStyles() {
       fontSize: 22,
       fontWeight: "bold",
     },
+    descriptionContainer: {
+      maxHeight: height * 0.25,
+    },
     description: {
       fontSize: 16,
       color: "#444",
@@ -76,6 +80,7 @@ export default function useStyles() {
     buttonsContainer: {
       display: "flex",
       flexDirection: "column",
+      justifyContent: "flex-end",
       gap: 12,
     },
     buttonPrimary: {

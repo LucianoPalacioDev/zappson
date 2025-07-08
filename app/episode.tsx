@@ -143,7 +143,9 @@ export default function EpisodeScreen() {
             </View>
 
             <Text style={styles.title}>{episode.title}</Text>
-            <Text style={styles.description}>{episode.description}</Text>
+            <ScrollView style={styles.descriptionContainer}>
+              <Text style={styles.description}>{episode.description}</Text>
+            </ScrollView>
           </View>
 
           <View style={styles.buttonsContainer}>
