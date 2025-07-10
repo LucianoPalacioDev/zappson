@@ -1,10 +1,8 @@
-import { useLanguage } from "@/contexts/LanguageContext";
 import React, { useEffect, useRef } from "react";
 import { Animated } from "react-native";
 import useStyles from "./styles";
 
 export default function Donut() {
-  const { t } = useLanguage();
   const bounceAnim = useRef(new Animated.Value(0)).current;
   const styles = useStyles();
 
@@ -35,7 +33,7 @@ export default function Donut() {
     <Animated.Text
       style={[styles.donut, { transform: [{ translateY: bounceAnim }] }]}
     >
-      {t("common.icons.donut")}
+      🍩
     </Animated.Text>
   );
 }

@@ -78,9 +78,6 @@ export default {
     goBackButton: "Volver al inicio",
   },
   common: {
-    icons: {
-      donut: "🍩",
-    },
     loading: "⏳ Cargando",
     retry: "🔄 Reintentar",
     backToHome: "🏠 Volver al Inicio",
