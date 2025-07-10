@@ -1,6 +1,7 @@
 import ErrorSeasonFetch from "@/components/Episode/Error/index";
 import LoadingEpisode from "@/components/Episode/Loading";
 import { EPISODES_IMAGES } from "@/constants/episodes";
+import { DEFAULT_PREFERENCES } from "@/constants/filters";
 import { ROUTES } from "@/constants/routes";
 import { PREFERENCES_KEY } from "@/constants/store-keys";
 import {
@@ -50,9 +51,11 @@ export default function EpisodeScreen() {
       const savedPreferencesString = await SecureStore.getItemAsync(
         PREFERENCES_KEY
       );
-      const savedPreferences = JSON.parse(savedPreferencesString || "{}");
+      const savedPreferences = !!savedPreferencesString
+        ? (JSON.parse(savedPreferencesString) as Preferences)
+        : DEFAULT_PREFERENCES;
       const seasonsData = await getSeasons({
-        preferences: savedPreferences as Preferences,
+        preferences: savedPreferences,
         language: language as Language,
       });
       const episodesData = getEpisodesFromSeasons(seasonsData);
