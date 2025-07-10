@@ -15,7 +15,7 @@
     "android": {
       "package": "com.zappson.app",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/tv.png",
+        "foregroundImage": "./assets/images/adaptative-icon.png",
         "backgroundColor": "#FFD700"
       },
       "edgeToEdgeEnabled": true
@@ -30,7 +30,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/tv.png",
+          "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#FFD700"
