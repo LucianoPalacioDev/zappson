@@ -12,7 +12,9 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import "react-native-reanimated";
+import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
+
+const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -20,11 +22,13 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <LanguageProvider>
-        <LinearGradient
+        <AnimatedLinearGradient
           colors={["#FFD700", "#FF8C00"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
           style={{ flex: 1 }}
+          entering={FadeIn.duration(100)}
+          exiting={FadeOut.duration(100)}
         >
           <Stack
             screenOptions={{
@@ -32,6 +36,8 @@ export default function RootLayout() {
                 backgroundColor: "transparent",
               },
               headerShown: false,
+              animation: "fade",
+              animationDuration: 300,
             }}
           >
             <Stack.Screen name={ROUTES.WELCOME} />
@@ -58,7 +64,7 @@ export default function RootLayout() {
               }}
             />
           </Stack>
-        </LinearGradient>
+        </AnimatedLinearGradient>
         <StatusBar style="dark" />
       </LanguageProvider>
     </ThemeProvider>
