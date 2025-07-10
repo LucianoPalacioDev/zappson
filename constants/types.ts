@@ -4,6 +4,7 @@ import {
   DESCRIPTION_LENGTH_FULL,
   DESCRIPTION_LENGTH_MEDIUM,
 } from "./filters";
+import { ROUTES } from "./routes";
 
 export type DescriptionLength =
   | typeof DESCRIPTION_LENGTH_BRIEF
@@ -85,3 +86,5 @@ export type Translations = {
     goBackButton: string;
   };
 };
+
+export type ROUTES_TYPE = (typeof ROUTES)[keyof typeof ROUTES];

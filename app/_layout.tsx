@@ -4,6 +4,7 @@ import CustomHomeHeader from "@/components/Home/Header";
 import CustomPreferencesHeader from "@/components/Preferences/Header";
 import { ROUTES } from "@/constants/routes";
 import { USERNAME_KEY } from "@/constants/store-keys";
+import { ROUTES_TYPE } from "@/constants/types";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import {
@@ -22,7 +23,7 @@ const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const [initialRoute, setInitialRoute] = useState<string | null>(null);
+  const [initialRoute, setInitialRoute] = useState<ROUTES_TYPE | null>(null);
 
   useEffect(() => {
     const checkUser = async () => {
