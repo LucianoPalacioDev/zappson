@@ -55,6 +55,7 @@ export default function useStyles() {
       color: colors.white,
       marginBottom: 8,
       fontFamily: "ComicNeue-Bold",
+      textAlign: "center",
     },
     subtitle: {
       fontSize: 18,

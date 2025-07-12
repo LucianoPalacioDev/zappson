@@ -27,7 +27,7 @@ export default function WelcomeScreen() {
 
     try {
       setIsLoading(true);
-      handleChangeName(name.trim());
+      await handleChangeName(name.trim());
       router.replace(`/${ROUTES.HOME}`);
     } catch (error) {
       console.error("Error saving name:", error);
