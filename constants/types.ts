@@ -76,14 +76,77 @@ export type Translations = {
     preferences: string;
     settingsIcon: string;
     tvIcon: string;
-    donutIcon: string;
     diceIcon: string;
+  };
+  preferences: {
+    title: string;
+    era: {
+      title: string;
+      all: { emoji: string; label: string };
+      classic: { emoji: string; label: string };
+      golden: { emoji: string; label: string };
+      intermediate: { emoji: string; label: string };
+      modern: { emoji: string; label: string };
+      custom: { emoji: string; label: string };
+      customModal: {
+        title: string;
+        selectAll: string;
+        clearAll: string;
+      };
+    };
+    age: {
+      title: string;
+      all: { emoji: string; label: string };
+      sam12: { emoji: string; label: string };
+      sam14: { emoji: string; label: string };
+    };
+    descriptionLength: {
+      title: string;
+      brief: { emoji: string; label: string };
+      medium: { emoji: string; label: string };
+      full: { emoji: string; label: string };
+    };
+    specials: {
+      title: string;
+      label: string;
+      description: string;
+      emoji: string;
+    };
+    buttons: {
+      save: string;
+    };
+  };
+  episode: {
+    title: string;
+    loading: string;
+    season: string;
+    episode: string;
+    buttons: {
+      newEpisode: string;
+    };
+    errors: {
+      fetchError: string;
+      retryError: string;
+    };
   };
   notFound: {
     title: string;
     subtitle: string;
     description: string;
     goBackButton: string;
+  };
+  common: {
+    loading: string;
+    retry: string;
+    backToHome: string;
+    cancel: string;
+    apply: string;
+    saveChanges: string;
+  };
+  manageAccount: {
+    title: string;
+    nameLabel: string;
+    namePlaceholder: string;
   };
 };
 
