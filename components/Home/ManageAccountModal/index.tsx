@@ -1,7 +1,9 @@
 import Input from "@/components/common/Input";
 import CustomModal from "@/components/common/Modal";
+import { USERNAME_KEY } from "@/constants/store-keys";
 import { useLanguage } from "@/contexts/LanguageContext";
-import React, { useCallback, useState } from "react";
+import * as SecureStore from "expo-secure-store";
+import React, { useCallback, useEffect, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import useStyles from "./styles";
 
@@ -16,13 +18,37 @@ export default function ManageAccountModal({
 }: ManageAccountModalProps) {
   const styles = useStyles();
   const { t } = useLanguage();
-  // TODO: init with the current name
   const [name, setName] = useState("");
+  const [isSaveButtonDisabled, setIsSaveButtonDisabled] = useState(true);
 
-  const isDisabled = false;
+  const loadUserName = useCallback(async () => {
+    try {
+      const name = await SecureStore.getItemAsync(USERNAME_KEY);
+      if (name) {
+        setName(name);
+      }
+    } catch (error) {
+      console.error("Error loading user name:", error);
+    }
+  }, []);
 
-  const handleApply = useCallback(() => {
-    console.log("handleApply");
+  useEffect(() => {
+    loadUserName();
+  }, [loadUserName]);
+
+  const handleApply = useCallback(async () => {
+    try {
+      await SecureStore.setItemAsync(USERNAME_KEY, name);
+    } catch (error) {
+      console.error("Error saving user name:", error);
+    }
+
+    onClose();
+  }, [name, onClose]);
+
+  const handleNameChange = useCallback((value: string) => {
+    setName(value);
+    setIsSaveButtonDisabled(value.trim() === "");
   }, []);
 
   return (
@@ -32,7 +58,7 @@ export default function ManageAccountModal({
         <View>
           <Input
             value={name}
-            setValue={setName}
+            setValue={handleNameChange}
             label={t("manageAccount.nameLabel")}
             placeholder={t("manageAccount.namePlaceholder")}
             customLabelStyles={styles.label}
@@ -46,10 +72,10 @@ export default function ManageAccountModal({
           <TouchableOpacity
             style={[
               styles.applyButton,
-              isDisabled && styles.applyButtonDisabled,
+              isSaveButtonDisabled && styles.applyButtonDisabled,
             ]}
             onPress={handleApply}
-            disabled={isDisabled}
+            disabled={isSaveButtonDisabled}
           >
             <Text style={styles.applyButtonText}>{t("common.apply")}</Text>
           </TouchableOpacity>
