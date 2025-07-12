@@ -17,26 +17,10 @@ export default function useStyles() {
     (modalWidth - (numColumns + 1) * DEFAULT_ITEM_SPACING) / numColumns;
 
   return StyleSheet.create({
-    modalOverlay: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
-      width: "100%",
-    },
-    modalContent: {
-      marginHorizontal: DEFAULT_MARGIN,
-      backgroundColor: colors.white,
-      borderRadius: 12,
-      padding: DEFAULT_PADDING,
+    modalContainer: {
       display: "flex",
       flexDirection: "column",
       gap: 12,
-      shadowColor: colors.black,
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5,
     },
     modalTitle: {
       fontSize: 20,

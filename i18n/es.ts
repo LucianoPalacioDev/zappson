@@ -83,5 +83,11 @@ export default {
     backToHome: "🏠 Volver al Inicio",
     cancel: "❌ Cancelar",
     apply: "✅ Aplicar",
+    saveChanges: "Guardar Cambios",
+  },
+  manageAccount: {
+    title: "Gestionar Cuenta",
+    nameLabel: "Nombre",
+    namePlaceholder: "Ingresá tu nuevo nombre",
   },
 };

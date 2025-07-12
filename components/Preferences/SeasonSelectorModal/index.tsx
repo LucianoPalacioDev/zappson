@@ -1,7 +1,8 @@
+import CustomModal from "@/components/common/Modal";
 import { SEASON_CANT } from "@/constants/filters";
 import { useLanguage } from "@/contexts/LanguageContext";
 import React, { useCallback, useEffect, useState } from "react";
-import { FlatList, Modal, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import useStyles from "./styles";
 
 type SeasonSelectorModalProps = {
@@ -51,84 +52,77 @@ export default function SeasonSelectorModal({
   }, [onClose, onSelectSeasons, tempSelectedSeasons]);
 
   return (
-    <Modal
-      visible={visible}
-      animationType="slide"
-      transparent={true}
-      onRequestClose={onClose}
-    >
-      <View style={styles.modalOverlay}>
-        <View style={styles.modalContent}>
-          <Text style={styles.modalTitle}>
-            {t("preferences.era.customModal.title")}
-          </Text>
+    <CustomModal visible={visible} onClose={onClose}>
+      <View style={styles.modalContainer}>
+        <Text style={styles.modalTitle}>
+          {t("preferences.era.customModal.title")}
+        </Text>
 
-          <View style={styles.actionsRow}>
-            <TouchableOpacity
-              onPress={handleSelectAll}
-              style={styles.actionButton}
-            >
-              <Text style={styles.actionButtonText}>
-                {t("preferences.era.customModal.selectAll")}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleClearAll}
-              style={styles.actionButton}
-            >
-              <Text style={styles.actionButtonText}>
-                {t("preferences.era.customModal.clearAll")}
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.seasonsGrid}>
-            <FlatList
-              data={Array.from({ length: SEASON_CANT }, (_, i) => i + 1)}
-              keyExtractor={(item) => item.toString()}
-              numColumns={6}
-              renderItem={({ item: season }) => (
-                <TouchableOpacity
+        <View style={styles.actionsRow}>
+          <TouchableOpacity
+            onPress={handleSelectAll}
+            style={styles.actionButton}
+          >
+            <Text style={styles.actionButtonText}>
+              {t("preferences.era.customModal.selectAll")}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={handleClearAll}
+            style={styles.actionButton}
+          >
+            <Text style={styles.actionButtonText}>
+              {t("preferences.era.customModal.clearAll")}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.seasonsGrid}>
+          <FlatList
+            data={Array.from({ length: SEASON_CANT }, (_, i) => i + 1)}
+            keyExtractor={(item) => item.toString()}
+            numColumns={6}
+            renderItem={({ item: season }) => (
+              <TouchableOpacity
+                style={[
+                  styles.seasonItem,
+                  tempSelectedSeasons.includes(season) &&
+                    styles.seasonItemSelected,
+                ]}
+                onPress={() => toggleSeason(season)}
+              >
+                <Text
                   style={[
-                    styles.seasonItem,
+                    styles.seasonText,
                     tempSelectedSeasons.includes(season) &&
-                      styles.seasonItemSelected,
+                      styles.seasonTextSelected,
                   ]}
-                  onPress={() => toggleSeason(season)}
                 >
-                  <Text
-                    style={[
-                      styles.seasonText,
-                      tempSelectedSeasons.includes(season) &&
-                        styles.seasonTextSelected,
-                    ]}
-                  >
-                    {season}
-                  </Text>
-                </TouchableOpacity>
-              )}
-            />
-          </View>
-          <View style={styles.buttonsContainer}>
-            <TouchableOpacity style={styles.cancelButton} onPress={onClose}>
-              <Text style={styles.cancelButtonText}>{t("common.cancel")}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.applyButton,
-                tempSelectedSeasons.length === 0 && styles.applyButtonDisabled,
-              ]}
-              onPress={handleApply}
-              disabled={tempSelectedSeasons.length === 0}
-            >
-              <Text style={styles.applyButtonText}>
-                {t("common.apply")}{" "}
-                {tempSelectedSeasons.length > 0 &&
-                  `(${tempSelectedSeasons.length})`}
-              </Text>
-            </TouchableOpacity>
-          </View>
+                  {season}
+                </Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity style={styles.cancelButton} onPress={onClose}>
+            <Text style={styles.cancelButtonText}>{t("common.cancel")}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.applyButton,
+              tempSelectedSeasons.length === 0 && styles.applyButtonDisabled,
+            ]}
+            onPress={handleApply}
+            disabled={tempSelectedSeasons.length === 0}
+          >
+            <Text style={styles.applyButtonText}>
+              {t("common.apply")}{" "}
+              {tempSelectedSeasons.length > 0 &&
+                `(${tempSelectedSeasons.length})`}
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
-    </Modal>
+    </CustomModal>
   );
 }

@@ -83,5 +83,11 @@ export default {
     backToHome: "🏠 Back to Home",
     cancel: "❌ Cancel",
     apply: "✅ Apply",
+    saveChanges: "Save Changes",
+  },
+  manageAccount: {
+    title: "Manage Account",
+    nameLabel: "Name",
+    namePlaceholder: "Enter your new name",
   },
 };

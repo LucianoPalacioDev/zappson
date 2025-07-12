@@ -1,18 +1,21 @@
 import Header from "@/components/common/Header";
 import LanguageToggle from "@/components/Home/LanguageToggle";
-import { ROUTES } from "@/constants/routes";
+import ManageAccountModal from "@/components/Home/ManageAccountModal";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useRouter } from "expo-router";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { Text, View } from "react-native";
 
 export default function CustomHomeHeader() {
   const { t } = useLanguage();
-  const router = useRouter();
+  const [showManageAccountModal, setShowManageAccountModal] = useState(false);
 
-  const handleSettings = useCallback(() => {
-    router.push(`/${ROUTES.PREFERENCES}`);
-  }, [router]);
+  const handleManageAccountModalOpen = useCallback(() => {
+    setShowManageAccountModal(true);
+  }, []);
+
+  const handleManageAccountModalClose = useCallback(() => {
+    setShowManageAccountModal(false);
+  }, []);
 
   return (
     <View>
@@ -22,7 +25,11 @@ export default function CustomHomeHeader() {
         rightIcon={
           <Text style={{ fontSize: 24 }}>{t("home.settingsIcon")}</Text>
         }
-        onRightPress={handleSettings}
+        onRightPress={handleManageAccountModalOpen}
+      />
+      <ManageAccountModal
+        visible={showManageAccountModal}
+        onClose={handleManageAccountModalClose}
       />
     </View>
   );

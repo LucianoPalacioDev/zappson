@@ -1,7 +1,7 @@
+import Input from "@/components/common/Input";
 import { ROUTES } from "@/constants/routes";
 import { USERNAME_KEY } from "@/constants/store-keys";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useTheme } from "@/hooks/useThemeColor";
 import useStyles from "@/styles/welcome.styles";
 import { useRouter } from "expo-router";
 import * as SecureStore from "expo-secure-store";
@@ -11,7 +11,6 @@ import {
   Platform,
   ScrollView,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -19,8 +18,6 @@ import {
 export default function WelcomeScreen() {
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isInputFocused, setIsInputFocused] = useState(false);
-  const { colors } = useTheme();
   const { t } = useLanguage();
   const router = useRouter();
   const styles = useStyles();
@@ -58,18 +55,12 @@ export default function WelcomeScreen() {
           </View>
 
           <View style={styles.form}>
-            <Text style={styles.label}>{t("welcome.nameQuestion")}</Text>
-            <TextInput
-              style={[styles.input, isInputFocused && styles.inputFocused]}
+            <Input
               value={name}
-              onChangeText={setName}
+              setValue={setName}
+              label={t("welcome.nameQuestion")}
               placeholder={t("welcome.namePlaceholder")}
-              placeholderTextColor={"#6B7280"}
-              selectionColor={colors.black}
-              cursorColor={colors.black}
-              onFocus={() => setIsInputFocused(true)}
-              onBlur={() => setIsInputFocused(false)}
-              returnKeyType="done"
+              customInputStyles={{ marginBottom: 24 }}
             />
 
             <TouchableOpacity
