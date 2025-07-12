@@ -28,7 +28,7 @@ export default {
       modern: { emoji: "🆕", label: "Época Moderna (T13+)" },
       custom: { emoji: "🔢", label: "Época Personalizada" },
       customModal: {
-        title: "Seleccionar Temporadas",
+        title: "Temporadas 🎬",
         selectAll: "📋 Todas",
         clearAll: "🗑️ Limpiar",
       },
@@ -86,8 +86,8 @@ export default {
     saveChanges: "Guardar Cambios",
   },
   manageAccount: {
-    title: "Gestionar Cuenta",
-    nameLabel: "Nombre",
+    title: "Gestionar Cuenta 👤",
+    nameLabel: "Nombre 📝",
     namePlaceholder: "Ingresá tu nuevo nombre",
   },
 };

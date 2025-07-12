@@ -28,7 +28,7 @@ export default {
       modern: { emoji: "🆕", label: "Modern Era (S13+)" },
       custom: { emoji: "🔢", label: "Custom Era" },
       customModal: {
-        title: "Select Seasons",
+        title: "Seasons 🎬",
         selectAll: "📋 All",
         clearAll: "🗑️ Clear",
       },
@@ -86,8 +86,8 @@ export default {
     saveChanges: "Save Changes",
   },
   manageAccount: {
-    title: "Manage Account",
-    nameLabel: "Name",
+    title: "Manage Account 👤",
+    nameLabel: "Name 📝",
     namePlaceholder: "Enter your new name",
   },
 };
