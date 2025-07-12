@@ -1,10 +1,9 @@
 import Input from "@/components/common/Input";
 import { ROUTES } from "@/constants/routes";
-import { USERNAME_KEY } from "@/constants/store-keys";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useUser } from "@/contexts/UserContext";
 import useStyles from "@/styles/welcome.styles";
 import { useRouter } from "expo-router";
-import * as SecureStore from "expo-secure-store";
 import { useState } from "react";
 import {
   KeyboardAvoidingView,
@@ -21,13 +20,14 @@ export default function WelcomeScreen() {
   const { t } = useLanguage();
   const router = useRouter();
   const styles = useStyles();
+  const { handleChangeName } = useUser();
 
   const handleContinue = async () => {
     if (!name.trim()) return;
 
     try {
       setIsLoading(true);
-      await SecureStore.setItemAsync(USERNAME_KEY, name.trim());
+      handleChangeName(name.trim());
       router.replace(`/${ROUTES.HOME}`);
     } catch (error) {
       console.error("Error saving name:", error);

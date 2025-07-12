@@ -1,37 +1,33 @@
 import Donut from "@/components/common/Donut";
 import { Colors } from "@/constants/colors";
 import { ROUTES } from "@/constants/routes";
-import { USERNAME_KEY } from "@/constants/store-keys";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useUser } from "@/contexts/UserContext";
 import useStyles from "@/styles/home.styles";
 import { useRouter } from "expo-router";
-import * as SecureStore from "expo-secure-store";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
 export default function HomeScreen() {
-  const [userName, setUserName] = useState("");
   const router = useRouter();
   const { t } = useLanguage();
   const styles = useStyles();
+  const { name } = useUser();
 
-  const loadUserName = useCallback(async () => {
+  const checkUserName = useCallback(async () => {
     try {
-      const name = await SecureStore.getItemAsync(USERNAME_KEY);
-      if (name) {
-        setUserName(name);
-      } else {
+      if (!name) {
         router.replace(`/${ROUTES.WELCOME}`);
       }
     } catch (error) {
       console.error("Error loading user name:", error);
       router.replace(`/${ROUTES.WELCOME}`);
     }
-  }, [router]);
+  }, [name, router]);
 
   useEffect(() => {
-    loadUserName();
-  }, [loadUserName]);
+    checkUserName();
+  }, [checkUserName]);
 
   const handleRandomEpisode = useCallback(() => {
     router.push(`/${ROUTES.EPISODE}`);
@@ -46,7 +42,7 @@ export default function HomeScreen() {
       <View style={styles.content}>
         <View style={styles.greeting}>
           <Text style={styles.greetingText}>
-            {t("home.greeting", { name: userName })}
+            {t("home.greeting", { name })}
           </Text>
           <Text style={styles.subtitle}>{t("home.subtitle")}</Text>
         </View>
