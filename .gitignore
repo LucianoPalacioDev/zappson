@@ -55,8 +55,8 @@ assets/images/episodes
 
 # Android data
 android
+my-release-key.keystore
 
 # Ios
 ios
-
 
