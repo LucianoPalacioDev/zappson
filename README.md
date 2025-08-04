@@ -9,6 +9,10 @@
 |--|
 | <video src="https://github.com/user-attachments/assets/ccc713ca-21dc-484b-953e-c5b5af2ffd5e" controls width="400" /> |
 
+
+
+
+
 ## 🖼️ Capturas
 
 | | | |
